@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:06 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:55:08 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 20:01:17 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,6 @@ typedef	struct	s_bmp_header
 	u_int32_t	biclrused;
 	u_int32_t	biclrimportant;
 }				t_bmp_file;
-
-# define WALLVY it->wallvy
-# define WALLHY it->wallhy
-# define DX it->dx
-# define X it->x
-# define WALLVX it->wallvx
-# define WALLHX it->wallhx
-# define WALLX it->wallx
-# define ARC it->arc
-# define HH it->hith
-# define HV it->hitv
-# define TXTNUM it->textnum
-# define SH map->s_height
-# define SW map->s_width
-# define DT map->ditch
-# define DT1 map->ditch1
 
 int				g_count;
 void			init(t_horizontal *it, t_mapdata *map);
