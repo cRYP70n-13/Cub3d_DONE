@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:29 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:38:40 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:47:48 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_floor(t_mapdata *map, char *line)
 				ft_error("not a valid F color");
 		i++;
 	}
-	HEXF = (map->floor[0] << 16) | (map->floor[1] << 8) | map->floor[2];
+	map->nhexfloor = (map->floor[0] << 16) | (map->floor[1] << 8) | map->floor[2];
 	(j != 3) ? ft_error("not a valid F color") : 0;
 }
 
@@ -98,7 +98,7 @@ void	ft_ceeling(t_mapdata *map, char *line)
 				ft_error("not a valid C color");
 		i++;
 	}
-	HEXC = (map->ceeling[0] << 16) | (map->ceeling[1] << 8) | map->ceeling[2];
+	map->nhexceeling = (map->ceeling[0] << 16) | (map->ceeling[1] << 8) | map->ceeling[2];
 	(j != 3) ? ft_error("not a valid C color") : 0;
 }
 

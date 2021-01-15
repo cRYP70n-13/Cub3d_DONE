@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:41:39 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:49:07 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	mlx_stuff(t_mapdata *map)
 	}
 	ft_helpdrawasquare(map);
 	mlx_put_image_to_window(map->mlx, g_mlx_win, map->mlximage, 0, 0);
-	if (SCREEN == 1)
+	if (map->screen == 1)
 	{
 		save_bmp(map);
 		ft_lstclear(&g_mylist);
@@ -85,12 +85,12 @@ int		main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (argc == 3)
 		((ft_strncmp(argv[2], "--save", 6) == 0)) ?
-			SCREEN = 1 : ft_error("wrong argument");
-	((argc == 2 && fd > 0) || (argc == 3 && SCREEN == 1)) ? ft_intro(fd, map)
+			map->screen = 1 : ft_error("wrong argument");
+	((argc == 2 && fd > 0) || (argc == 3 && map->screen == 1)) ? ft_intro(fd, map)
 		: ft_error("where is my map");
 	(ft_checkex(argv[1])) ? 0 : ft_error("wrong extension");
 	texture(map);
-	ANGLE = sean(map);
+	map->angle = sean(map);
 	mlx_stuff(map);
 	ft_lstclear(&g_mylist);
 }

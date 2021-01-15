@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:40:29 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:51:02 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_drawceeling(double wall, t_mapdata *map, int b)
 	while (j < i)
 	{
 		if (j >= 0 && j < map->height && b >= 0 && b < map->width)
-			map->mlxdata[j * map->width + b] = HEXC;
+			map->mlxdata[j * map->width + b] = map->nhexceeling;
 		j++;
 	}
 }
@@ -38,7 +38,7 @@ static void	ft_drawfloor(double wall, t_mapdata *map, int b)
 	while (i < j)
 	{
 		if (i >= 0 && i < map->height && b >= 0 && b < map->width)
-			map->mlxdata[i * map->width + b] = HEXF;
+			map->mlxdata[i * map->width + b] = map->nhexfloor;
 		i++;
 	}
 }
@@ -66,7 +66,7 @@ static void	ft_drawwall(double wall, t_mapdata *map,
 	{
 		offsety = (i + (wall - map->height) / 2) * ((double)g_tiles / wall);
 		if (i >= 0 && i < map->height && b >= 0 && b < map->width)
-			map->mlxdata[(int)i * map->width + b] = TXTDATA[TXTNUM][(int)offsetx
+			map->mlxdata[(int)i * map->width + b] = map->texturedata[TXTNUM][(int)offsetx
 				+ (g_tiles * (int)offsety)];
 		i++;
 	}
@@ -90,7 +90,7 @@ void		generete_wall(t_mapdata *map, t_horizontal *it,
 	double		dist;
 	double		stripheight;
 
-	dist = theone * cos(ARC - ANGLE);
+	dist = theone * cos(ARC - map->angle);
 	prjplane = (map->width / 2) / tan(M_PI / 6);
 	stripheight = (g_tiles / dist) * prjplane;
 	render_wall(map, stripheight, b, it);

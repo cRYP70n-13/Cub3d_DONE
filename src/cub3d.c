@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:15:35 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:43:19 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:49:07 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ void	ft_init(t_mapdata *map)
 	map->mlxdata = 0;
 	map->mlximage = 0;
 	map->playery = 0;
-	KEY_S1 = 0;
-	KEY_1 = 0;
-	KEY_2 = 0;
-	KEY_0 = 0;
-	KEY_S0 = 0;
-	KEY_S2 = 0;
+	map->keys1 = 0;
+	map->keyv1 = 0;
+	map->keyv2 = 0;
+	map->keyv0 = 0;
+	map->keys0 = 0;
+	map->keys2 = 0;
 	map->pp = 0;
-	SCREEN = 0;
+	map->screen = 0;
 }
 
 void	ft_read(int fd, t_mapdata *map)
@@ -116,8 +116,8 @@ void	ft_helpdrawasquare(t_mapdata *map)
 
 	if (tmp == 0)
 	{
-		RAYDIST = malloc(sizeof(int *) * map->width);
-		ft_lstadd_front(&g_mylist, ft_lstnew(RAYDIST));
+		map->raydist = malloc(sizeof(int *) * map->width);
+		ft_lstadd_front(&g_mylist, ft_lstnew(map->raydist));
 		tmp = 1;
 	}
 	ft_drawaplayer(map);

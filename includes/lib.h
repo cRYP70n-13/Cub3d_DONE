@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:13:58 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:41:41 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:51:09 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,38 +120,12 @@ typedef struct	s_lst
 	struct s_lst	*next;
 }				t_list;
 
-# define LOL map->lol
-# define ANGLE map->angle
-# define KEY_0 map->keyv0
-# define KEY_1 map->keyv1
-# define KEY_2 map->keyv2
-# define KEY_S0 map->keys0
-# define KEY_S1 map->keys1
-# define KEY_S2 map->keys2
 # define LEFT 124
 # define WLEFT 0
 # define RIGHT 123
 # define WRIGHT 2
 # define UP 13
 # define DOWN 1
-# define DRT map->drota
-# define DWX map->dwdx
-# define DWY map->dwdy
-# define DWD map->wdis
-# define VIEW map->view
-# define CEELING map->hexceeling
-# define HEXC map->nhexceeling
-# define HEXF map->nhexfloor
-# define FLOOR map->hexfloor
-# define FUP map->up
-# define FDOWN map->down
-# define FRIGHT map->right
-# define FLEFT map->left
-# define RAYDIST map->raydist
-# define SCREEN map->screen
-# define SPRITES map->sprites
-# define TXTIMG map->textureimage
-# define TXTDATA map->texturedata
 
 # define RAD(x) (x * (M_PI / 180))
 # define DEG(x) ((180 / M_PI) * x)

@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:54 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:41:39 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:46:01 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,26 @@ int		key_released(int key, t_mapdata *map)
 {
 	if (key == 259)
 	{
-		KEY_0 = 0;
-		KEY_1 = 0;
-		KEY_2 = 0;
+		map->keyv0 = 0;
+		map->keyv1 = 0;
+		map->keyv2 = 0;
 	}
-	(key == LEFT || key == RIGHT) ? KEY_S0 = 0 : 0;
-	(key == DOWN || key == UP) ? KEY_S1 = 0 : 0;
-	(key == WLEFT || key == WRIGHT) ? KEY_S2 = 0 : 0;
+	(key == LEFT || key == RIGHT) ? map->keys0 = 0 : 0;
+	(key == DOWN || key == UP) ? map->keys1 = 0 : 0;
+	(key == WLEFT || key == WRIGHT) ? map->keys2 = 0 : 0;
 	if (key == WLEFT || key == WRIGHT)
 	{
 		if (key == WLEFT)
-			KEY_2 = 0;
+			map->keyv2 = 0;
 		if (key == WRIGHT)
-			KEY_2 = 0;
+			map->keyv2 = 0;
 	}
 	if (key == DOWN || key == UP)
 	{
 		if (key == DOWN)
-			KEY_1 = 0;
+			map->keyv1 = 0;
 		if (key == UP)
-			KEY_1 = 0;
+			map->keyv1 = 0;
 	}
 	(key == 53) ? ft_error("game over") : 0;
 	return (0);
@@ -53,26 +53,26 @@ int		key_pressed(int key, t_mapdata *map)
 	if (key == LEFT || key == RIGHT)
 	{
 		if (key == LEFT)
-			KEY_0 = 1;
+			map->keyv0 = 1;
 		if (key == RIGHT)
-			KEY_0 = -1;
-		KEY_S0 = 1;
+			map->keyv0 = -1;
+		map->keys0 = 1;
 	}
 	if (key == WLEFT || key == WRIGHT)
 	{
 		if (key == WLEFT)
-			KEY_2 = -1;
+			map->keyv2 = -1;
 		if (key == WRIGHT)
-			KEY_2 = 1;
-		KEY_S2 = 1;
+			map->keyv2 = 1;
+		map->keys2 = 1;
 	}
 	if (key == DOWN || key == UP)
 	{
 		if (key == DOWN)
-			KEY_1 = -1;
+			map->keyv1 = -1;
 		if (key == UP)
-			KEY_1 = 1;
-		KEY_S1 = 1;
+			map->keyv1 = 1;
+		map->keys1 = 1;
 	}
 	return (0);
 }
@@ -86,21 +86,21 @@ void	ft_movewasd(t_mapdata *map)
 	int		t;
 
 	t = g_tiles;
-	y = map->map2d[(int)(map->playery + (KEY_1 * sin(ANGLE) * 10)) / (t)][(int)map->playerx / (t)];
-	y1 = map->map2d[(int)(map->playery + (KEY_2 * sin(RAD(ANGLE + 90)) * 10))
+	y = map->map2d[(int)(map->playery + (map->keyv1 * sin(map->angle) * 10)) / (t)][(int)map->playerx / (t)];
+	y1 = map->map2d[(int)(map->playery + (map->keyv2 * sin(RAD(map->angle + 90)) * 10))
 	/ (t)][(int)map->playerx / (t)];
-	x = map->map2d[(int)map->playery / (t)][(int)(map->playerx + (KEY_1 * cos(ANGLE) * 10)) / (t)];
-	x1 = map->map2d[(int)map->playery / (t)][(int)(map->playerx + (KEY_2
-	* cos(RAD(ANGLE + 90)) * 10)) / (t)];
-	ANGLE = fmod(ANGLE, 2 * M_PI);
-	if (ANGLE < 0)
-		ANGLE += 2 * M_PI;
+	x = map->map2d[(int)map->playery / (t)][(int)(map->playerx + (map->keyv1 * cos(map->angle) * 10)) / (t)];
+	x1 = map->map2d[(int)map->playery / (t)][(int)(map->playerx + (map->keyv2
+	* cos(RAD(map->angle + 90)) * 10)) / (t)];
+	map->angle = fmod(map->angle, 2 * M_PI);
+	if (map->angle < 0)
+		map->angle += 2 * M_PI;
 	if (y != '1' && y != '2' && y1 != '1' && y1 != '2')
-		map->playery = map->playery + (KEY_1 * sin(ANGLE) * 4) +
-			(KEY_2 * sin(RAD(ANGLE + 90)) * 2);
+		map->playery = map->playery + (map->keyv1 * sin(map->angle) * 4) +
+			(map->keyv2 * sin(RAD(map->angle + 90)) * 2);
 	if (x != '1' && x != '2' && x1 != '1' && x1 != '2')
-		map->playerx = map->playerx + (KEY_1 * cos(ANGLE) * 4) +
-			(KEY_2 * cos(RAD(ANGLE + 90)) * 2);
+		map->playerx = map->playerx + (map->keyv1 * cos(map->angle) * 4) +
+			(map->keyv2 * cos(RAD(map->angle + 90)) * 2);
 }
 
 int		loop_me(t_mapdata *map)
@@ -108,11 +108,11 @@ int		loop_me(t_mapdata *map)
 	mlx_hook(g_mlx_win, 2, 0, &key_pressed, map);
 	mlx_hook(g_mlx_win, 3, 0, &key_released, map);
 	mlx_hook(g_mlx_win, 17, 0L, &ft_quit, map);
-	ANGLE = fmod(ANGLE, 2 * M_PI);
-	if (ANGLE < 0)
-		ANGLE += 2 * M_PI;
-	if (KEY_S0 == 1)
-		ANGLE = ANGLE + ((KEY_0) * 0.06);
+	map->angle = fmod(map->angle, 2 * M_PI);
+	if (map->angle < 0)
+		map->angle += 2 * M_PI;
+	if (map->keys0 == 1)
+		map->angle = map->angle + ((map->keyv0) * 0.06);
 	ft_movewasd(map);
 	mlx_destroy_image(map->mlx, map->mlximage);
 	map->mlximage = mlx_new_image(map->mlx, map->width, map->height);
