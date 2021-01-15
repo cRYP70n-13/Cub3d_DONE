@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:06 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:14:08 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:55:08 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,6 @@ typedef	struct	s_bmp_header
 	u_int32_t	biclrimportant;
 }				t_bmp_file;
 
-# define FCEUP it->faceup
-# define FCEDOWN it->facedown
-# define FCELEFT it->faceleft
-# define FCERIGHT it->faceright
-# define DY it->dy
-# define Y it->y
-# define WALLY it->wally
 # define WALLVY it->wallvy
 # define WALLHY it->wallhy
 # define DX it->dx

@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:33 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:51:02 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:54:10 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ float	sean(t_mapdata *map)
 
 void	picktxt(t_horizontal *it)
 {
-	if (FCEUP && HH)
+	if (it->faceup && HH)
 		TXTNUM = 1;
-	if (FCELEFT && HV)
+	if (it->faceleft && HV)
 		TXTNUM = 2;
-	if (FCEDOWN && HH)
+	if (it->facedown && HH)
 		TXTNUM = 3;
-	if (FCERIGHT && HV)
+	if (it->faceright && HV)
 		TXTNUM = 0;
 }
 

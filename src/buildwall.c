@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:51:02 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:55:04 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	ft_drawwall(double wall, t_mapdata *map,
 	double	offsety;
 
 	if (HV)
-		offsetx = (int)WALLY % g_tiles;
+		offsetx = (int)it->wally % g_tiles;
 	else
 		offsetx = (int)WALLX % g_tiles;
 	toppix = (map->height / 2) - (wall / 2);

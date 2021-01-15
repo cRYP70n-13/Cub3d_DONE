@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:53 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:38:40 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:55:04 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ double	colmdist(t_mapdata *map, t_horizontal *it)
 	if (hdist < vdist)
 	{
 		WALLX = WALLHX;
-		WALLY = WALLHY;
+		it->wally = WALLHY;
 		dist = hdist;
 		HH = 1;
 	}
 	else
 	{
 		WALLX = WALLVX;
-		WALLY = WALLVY;
+		it->wally = WALLVY;
 		dist = vdist;
 		HV = 1;
 	}
