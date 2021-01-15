@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   screenshot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:18:17 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:25:06 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ static void		head_make(t_bmp_file *info_bmp_file, t_mapdata *map)
 {
 	info_bmp_file->bftype[0] = 0x42;
 	info_bmp_file->bftype[1] = 0x4D;
-	info_bmp_file->bfsize = (WH * HT * 4) + 54;
+	info_bmp_file->bfsize = (map->width * map->height * 4) + 54;
 	info_bmp_file->bfreserved1 = 0x00000000;
 	info_bmp_file->bfoffbits = 0x36;
 	info_bmp_file->bisize = 40;
-	info_bmp_file->biwidth = WH;
-	info_bmp_file->biheight = HT * -1;
+	info_bmp_file->biwidth = map->width;
+	info_bmp_file->biheight = map->height * -1;
 	info_bmp_file->biplanes = 1;
 	info_bmp_file->bibitcount = 32;
 	info_bmp_file->bicompression = 0;
-	info_bmp_file->bisizeimage = (WH * HT * 4);
+	info_bmp_file->bisizeimage = (map->width * map->height * 4);
 	info_bmp_file->bixpermeter = 2835;
 	info_bmp_file->biypermeter = 2835;
 	info_bmp_file->biclrused = 0;

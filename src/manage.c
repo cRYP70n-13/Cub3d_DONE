@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:23 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:17:24 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:28:10 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	ft_fetch(char *line, t_mapdata *map)
 		(ft_isalpha(line[i])) ? ft_error("there are some abnormal chars") : 0;
 		if (ft_isdigit(line[i]) && cond1 && (check += 1))
 		{
-			(WH = ft_atoi(line + i)) && (cond1 -= cond1);
-			i += ft_intlen(WH);
+			(map->width = ft_atoi(line + i)) && (cond1 -= cond1);
+			i += ft_intlen(map->width);
 		}
 		if (ft_isdigit(line[i]) && !cond1 && cond2 && (check += 1))
 		{
-			HT = ft_atoi(line + i);
-			i += ft_intlen(HT);
+			map->height = ft_atoi(line + i);
+			i += ft_intlen(map->height);
 		}
 		(ft_isdigit(line[i]) && !cond1 && !cond2) ? check++ : 0;
 	}
@@ -67,8 +67,8 @@ void	ft_north(t_mapdata *map, char *line)
 	{
 		if (line[i] == '.' || ft_isalpha(line[i]))
 		{
-			NO = ft_substr(line, i, ft_strlen(line));
-			ft_lstadd_front(&g_mylist, ft_lstnew(NO));
+			map->north = ft_substr(line, i, ft_strlen(line));
+			ft_lstadd_front(&g_mylist, ft_lstnew(map->north));
 			MCHECK++;
 			break ;
 		}
@@ -83,8 +83,8 @@ void	ft_south(t_mapdata *map, char *line)
 	{
 		if (line[i] == '.' || ft_isalpha(line[i]))
 		{
-			SO = ft_substr(line, i, ft_strlen(line));
-			ft_lstadd_front(&g_mylist, ft_lstnew(SO));
+			map->south = ft_substr(line, i, ft_strlen(line));
+			ft_lstadd_front(&g_mylist, ft_lstnew(map->south));
 			MCHECK++;
 			break ;
 		}
@@ -99,8 +99,8 @@ void	ft_west(t_mapdata *map, char *line)
 	{
 		if (line[i] == '.' || ft_isalpha(line[i]))
 		{
-			WE = ft_substr(line, i, ft_strlen(line));
-			ft_lstadd_front(&g_mylist, ft_lstnew(WE));
+			map->west = ft_substr(line, i, ft_strlen(line));
+			ft_lstadd_front(&g_mylist, ft_lstnew(map->west));
 			MCHECK++;
 			break ;
 		}

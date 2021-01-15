@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:15:35 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:15:36 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:24:39 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	ft_helpdrawasquare(t_mapdata *map)
 
 	if (tmp == 0)
 	{
-		RAYDIST = malloc(sizeof(int *) * WH);
+		RAYDIST = malloc(sizeof(int *) * map->width);
 		ft_lstadd_front(&g_mylist, ft_lstnew(RAYDIST));
 		tmp = 1;
 	}

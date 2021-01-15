@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:33 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:18:50 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:28:29 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ void	texture(t_mapdata *map)
 	int	usless;
 	int uslesser;
 
-	(TXTIMG = mlx_xpm_file_to_image(MLX, EA, &uslesser, &uslesser))
+	(TXTIMG = mlx_xpm_file_to_image(MLX, map->east, &uslesser, &uslesser))
 		? 0 : ft_error("wrong ea path");
 	TXTDATA[0] = (int *)mlx_get_data_addr(TXTIMG, &usless, &usless, &usless);
-	(TXTIMG = mlx_xpm_file_to_image(MLX, NO, &uslesser, &uslesser))
+	(TXTIMG = mlx_xpm_file_to_image(MLX, map->north, &uslesser, &uslesser))
 		? 0 : ft_error("wrong no path");
 	TXTDATA[1] = (int *)mlx_get_data_addr(TXTIMG, &usless, &usless, &usless);
-	(TXTIMG = mlx_xpm_file_to_image(MLX, WE, &uslesser, &uslesser))
+	(TXTIMG = mlx_xpm_file_to_image(MLX, map->west, &uslesser, &uslesser))
 		? 0 : ft_error("wrong we path");
 	TXTDATA[2] = (int *)mlx_get_data_addr(TXTIMG, &usless, &usless, &usless);
-	(TXTIMG = mlx_xpm_file_to_image(MLX, SO, &uslesser, &uslesser))
+	(TXTIMG = mlx_xpm_file_to_image(MLX, map->south, &uslesser, &uslesser))
 		? 0 : ft_error("wrong so path");
 	TXTDATA[3] = (int *)mlx_get_data_addr(TXTIMG, &usless, &usless, &usless);
 }

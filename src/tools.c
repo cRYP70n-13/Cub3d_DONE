@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:12 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:19:13 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:24:39 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_drawasquare(int a, int b, t_mapdata *map)
 		j = 0;
 		while (j <= 7)
 		{
-			DATA[(j + b) * WH + (i + a)] = 0x0fffff;
+			DATA[(j + b) * map->width + (i + a)] = 0x0fffff;
 			j++;
 		}
 		i++;
@@ -60,7 +60,7 @@ void	ft_drawaplayer(t_mapdata *map)
 	i = 0;
 	ft_lstadd_front(&g_mylist, ft_lstnew(it));
 	ARC = ANGLE - (M_PI / 6);
-	while (i < WH)
+	while (i < map->width)
 	{
 		if (ARC < 0)
 			ARC += 2 * M_PI;
@@ -68,7 +68,7 @@ void	ft_drawaplayer(t_mapdata *map)
 			ARC -= (M_PI * 2);
 		RAYDIST[i] = colmdist(map, it);
 		generete_wall(map, it, i, RAYDIST[i]);
-		ARC += (M_PI / 3) / WH;
+		ARC += (M_PI / 3) / map->width;
 		i++;
 	}
 	free(tmp);

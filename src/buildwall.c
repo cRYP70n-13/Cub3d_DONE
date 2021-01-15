@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   buildwall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:15:17 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:25:06 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static void	ft_drawceeling(double wall, t_mapdata *map, int b)
 	int			j;
 
 	j = 0;
-	i = (HT / 2) - (wall / 2);
+	i = (map->height / 2) - (wall / 2);
 	while (j < i)
 	{
-		if (j >= 0 && j < HT && b >= 0 && b < WH)
-			DATA[j * WH + b] = HEXC;
+		if (j >= 0 && j < map->height && b >= 0 && b < map->width)
+			DATA[j * map->width + b] = HEXC;
 		j++;
 	}
 }
@@ -33,12 +33,12 @@ static void	ft_drawfloor(double wall, t_mapdata *map, int b)
 	int			i;
 	int			j;
 
-	j = HT;
-	i = (HT / 2) + (wall / 2);
+	j = map->height;
+	i = (map->height / 2) + (wall / 2);
 	while (i < j)
 	{
-		if (i >= 0 && i < HT && b >= 0 && b < WH)
-			DATA[i * WH + b] = HEXF;
+		if (i >= 0 && i < map->height && b >= 0 && b < map->width)
+			DATA[i * map->width + b] = HEXF;
 		i++;
 	}
 }
@@ -56,17 +56,17 @@ static void	ft_drawwall(double wall, t_mapdata *map,
 		offsetx = (int)WALLY % g_tiles;
 	else
 		offsetx = (int)WALLX % g_tiles;
-	toppix = (HT / 2) - (wall / 2);
+	toppix = (map->height / 2) - (wall / 2);
 	toppix = (toppix < 0) ? 0 : toppix;
 	i = toppix;
-	botpix = (HT / 2) + (wall / 2);
-	botpix = (botpix >= HT) ? HT : botpix;
+	botpix = (map->height / 2) + (wall / 2);
+	botpix = (botpix >= map->height) ? map->height : botpix;
 	picktxt(it);
 	while (i < botpix)
 	{
-		offsety = (i + (wall - HT) / 2) * ((double)g_tiles / wall);
-		if (i >= 0 && i < HT && b >= 0 && b < WH)
-			DATA[(int)i * WH + b] = TXTDATA[TXTNUM][(int)offsetx
+		offsety = (i + (wall - map->height) / 2) * ((double)g_tiles / wall);
+		if (i >= 0 && i < map->height && b >= 0 && b < map->width)
+			DATA[(int)i * map->width + b] = TXTDATA[TXTNUM][(int)offsetx
 				+ (g_tiles * (int)offsety)];
 		i++;
 	}
@@ -91,7 +91,7 @@ void		generete_wall(t_mapdata *map, t_horizontal *it,
 	double		stripheight;
 
 	dist = theone * cos(ARC - ANGLE);
-	prjplane = (WH / 2) / tan(M_PI / 6);
+	prjplane = (map->width / 2) / tan(M_PI / 6);
 	stripheight = (g_tiles / dist) * prjplane;
 	render_wall(map, stripheight, b, it);
 }

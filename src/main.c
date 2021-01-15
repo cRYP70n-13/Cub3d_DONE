@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:17:16 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:31:17 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void	init(t_horizontal *it, t_mapdata *map)
 	it->faceup = 0;
 	it->faceleft = 0;
 	it->faceright = 0;
-	F[0] = 0;
+	map->floor[0] = 0;
 	C[0] = 0;
-	F[1] = 0;
+	map->floor[1] = 0;
 	C[1] = 0;
-	F[2] = 0;
+	map->floor[2] = 0;
 	C[2] = 0;
 }
 
@@ -37,8 +37,8 @@ void	mlx_stuff(t_mapdata *map)
 {
 	static int c = 0;
 
-	g_mlx_win = mlx_new_window(MLX, WH, HT, "CUB3D");
-	IMAGE = mlx_new_image(MLX, WH, HT);
+	g_mlx_win = mlx_new_window(MLX, map->width, map->height, "CUB3D");
+	IMAGE = mlx_new_image(MLX, map->width, map->height);
 	DATA = (int *)mlx_get_data_addr(IMAGE, &SIZELINE, &ENDIAN, &ENDIAN);
 	if (c == 0)
 	{

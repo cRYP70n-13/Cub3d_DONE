@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:13:58 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:14:00 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:31:50 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_H
-
 # define LIB_H
 
 # include <math.h>
@@ -121,14 +120,6 @@ typedef struct	s_lst
 	struct s_lst	*next;
 }				t_list;
 
-# define WH map->width
-# define HT map->height
-# define NO map->north
-# define SO map->south
-# define WE map->west
-# define EA map->east
-# define S map->sprite
-# define F map->floor
 # define C map->ceeling
 # define PP map->pp
 # define MAP0 map->maponestr

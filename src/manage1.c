@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:29 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:17:30 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:31:17 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_east(t_mapdata *map, char *line)
 	{
 		if (line[i] == '.' || ft_isalpha(line[i]))
 		{
-			EA = ft_substr(line, i, ft_strlen(line));
-			ft_lstadd_front(&g_mylist, ft_lstnew(EA));
+			map->east = ft_substr(line, i, ft_strlen(line));
+			ft_lstadd_front(&g_mylist, ft_lstnew(map->east));
 			MCHECK++;
 			break ;
 		}
@@ -36,8 +36,8 @@ void	ft_sprite(t_mapdata *map, char *line)
 	{
 		if (line[i] == '.' || ft_isalpha(line[i]))
 		{
-			S = ft_substr(line, i, ft_strlen(line));
-			ft_lstadd_front(&g_mylist, ft_lstnew(S));
+			map->sprite = ft_substr(line, i, ft_strlen(line));
+			ft_lstadd_front(&g_mylist, ft_lstnew(map->sprite));
 			MCHECK++;
 			break ;
 		}
@@ -58,9 +58,9 @@ void	ft_floor(t_mapdata *map, char *line)
 	{
 		if (ft_isdigit(line[i]))
 		{
-			F[j] = ft_atoi(line + i);
-			i += ft_intlen(F[j]) - 1;
-			(F[j] >= 0 && F[j] <= 255) ? 0
+			map->floor[j] = ft_atoi(line + i);
+			i += ft_intlen(map->floor[j]) - 1;
+			(map->floor[j] >= 0 && map->floor[j] <= 255) ? 0
 				: ft_error("it's the wrong F number");
 			j++;
 		}
@@ -69,7 +69,7 @@ void	ft_floor(t_mapdata *map, char *line)
 				ft_error("not a valid F color");
 		i++;
 	}
-	HEXF = (F[0] << 16) | (F[1] << 8) | F[2];
+	HEXF = (map->floor[0] << 16) | (map->floor[1] << 8) | map->floor[2];
 	(j != 3) ? ft_error("not a valid F color") : 0;
 }
 

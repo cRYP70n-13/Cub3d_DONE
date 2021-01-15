@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:54 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:17:55 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:25:06 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int		loop_me(t_mapdata *map)
 		ANGLE = ANGLE + ((KEY_0) * 0.06);
 	ft_movewasd(map);
 	mlx_destroy_image(MLX, IMAGE);
-	IMAGE = mlx_new_image(MLX, WH, HT);
+	IMAGE = mlx_new_image(MLX, map->width, map->height);
 	DATA = (int *)mlx_get_data_addr(IMAGE, &SIZELINE, &ENDIAN, &ENDIAN);
 	ft_helpdrawasquare(map);
 	mlx_put_image_to_window(MLX, g_mlx_win, IMAGE, 0, 0);
