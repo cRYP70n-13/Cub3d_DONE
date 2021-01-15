@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:15:35 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:41:39 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:43:19 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	ft_init(t_mapdata *map)
 	KEY_0 = 0;
 	KEY_S0 = 0;
 	KEY_S2 = 0;
-	LOL = 0;
 	map->pp = 0;
 	SCREEN = 0;
 }
