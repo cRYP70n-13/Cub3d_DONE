@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:15:35 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:24:39 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:41:39 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	ft_init(t_mapdata *map)
 	map->sprite = 0;
 	map->west = 0;
 	map->mapcheck = 0;
-	MLX = 0;
-	MAP2D = 0;
-	MAP2DB = 0;
-	DATA = 0;
-	IMAGE = 0;
-	PY = 0;
+	map->mlx = 0;
+	map->map2d = 0;
+	map->map2dbefore = 0;
+	map->mlxdata = 0;
+	map->mlximage = 0;
+	map->playery = 0;
 	KEY_S1 = 0;
 	KEY_1 = 0;
 	KEY_2 = 0;
@@ -65,7 +65,7 @@ void	ft_init(t_mapdata *map)
 	KEY_S0 = 0;
 	KEY_S2 = 0;
 	LOL = 0;
-	PP = 0;
+	map->pp = 0;
 	SCREEN = 0;
 }
 
@@ -78,17 +78,17 @@ void	ft_read(int fd, t_mapdata *map)
 	while (1)
 	{
 		ret = get_next_line(fd, &line);
-		if ((line[0] == '1' || line[0] == ' ') && MCHECK < 8)
+		if ((line[0] == '1' || line[0] == ' ') && map->mapcheck < 8)
 			ft_error("map isn't last in the file");
-		if (MCHECK == 8 && (line[0] == ' ' || line[0] == '1')
+		if (map->mapcheck == 8 && (line[0] == ' ' || line[0] == '1')
 			&& notmap == 1)
 			notmap = 0;
-		if (MCHECK == 8 && line[0] != '\0' && notmap == 1)
+		if (map->mapcheck == 8 && line[0] != '\0' && notmap == 1)
 			ft_error("not an empty line");
 		ft_small_check(line, map, notmap);
-		if (MCHECK == 8 && notmap == 0)
+		if (map->mapcheck == 8 && notmap == 0)
 		{
-			(PP < (int)ft_strlen(line)) ? PP = (int)ft_strlen(line) : PP;
+			(map->pp < (int)ft_strlen(line)) ? map->pp = (int)ft_strlen(line) : map->pp;
 			if (helpread(line, map))
 				continue;
 		}
@@ -105,10 +105,10 @@ void	ft_matrix(t_mapdata *map, char *line)
 
 	i = 0;
 	box = ft_strdup(line);
-	if (!MAP0)
-		MAP0 = ft_strdup("");
-	MAP0 = ft_strjoin(MAP0, box);
-	MAP0 = ft_strjoin(MAP0, ft_strdup("\n"));
+	if (!map->maponestr)
+		map->maponestr = ft_strdup("");
+	map->maponestr = ft_strjoin(map->maponestr, box);
+	map->maponestr = ft_strjoin(map->maponestr, ft_strdup("\n"));
 }
 
 void	ft_helpdrawasquare(t_mapdata *map)

@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:31:17 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:41:39 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,35 @@ void	init(t_horizontal *it, t_mapdata *map)
 	it->faceleft = 0;
 	it->faceright = 0;
 	map->floor[0] = 0;
-	C[0] = 0;
+	map->ceeling[0] = 0;
 	map->floor[1] = 0;
-	C[1] = 0;
+	map->ceeling[1] = 0;
 	map->floor[2] = 0;
-	C[2] = 0;
+	map->ceeling[2] = 0;
 }
 
 void	mlx_stuff(t_mapdata *map)
 {
 	static int c = 0;
 
-	g_mlx_win = mlx_new_window(MLX, map->width, map->height, "CUB3D");
-	IMAGE = mlx_new_image(MLX, map->width, map->height);
-	DATA = (int *)mlx_get_data_addr(IMAGE, &SIZELINE, &ENDIAN, &ENDIAN);
+	g_mlx_win = mlx_new_window(map->mlx, map->width, map->height, "CUB3D");
+	map->mlximage = mlx_new_image(map->mlx, map->width, map->height);
+	map->mlxdata = (int *)mlx_get_data_addr(map->mlximage, &map->size_line, &map->endian, &map->endian);
 	if (c == 0)
 	{
 		init_spt(map);
 		c = 1;
 	}
 	ft_helpdrawasquare(map);
-	mlx_put_image_to_window(MLX, g_mlx_win, IMAGE, 0, 0);
+	mlx_put_image_to_window(map->mlx, g_mlx_win, map->mlximage, 0, 0);
 	if (SCREEN == 1)
 	{
 		save_bmp(map);
 		ft_lstclear(&g_mylist);
 		exit(1);
 	}
-	mlx_loop_hook(MLX, &loop_me, map);
-	mlx_loop(MLX);
+	mlx_loop_hook(map->mlx, &loop_me, map);
+	mlx_loop(map->mlx);
 }
 
 int		ft_checkex(char *s)
@@ -81,7 +81,7 @@ int		main(int argc, char **argv)
 		ft_error("can't be allocated");
 	ft_init(map);
 	g_mylist = ft_lstnew(0);
-	MLX = mlx_init();
+	map->mlx = mlx_init();
 	fd = open(argv[1], O_RDONLY);
 	if (argc == 3)
 		((ft_strncmp(argv[2], "--save", 6) == 0)) ?

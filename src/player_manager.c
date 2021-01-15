@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:54 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:25:06 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:41:39 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,20 +86,20 @@ void	ft_movewasd(t_mapdata *map)
 	int		t;
 
 	t = g_tiles;
-	y = MAP2D[(int)(PY + (KEY_1 * sin(ANGLE) * 10)) / (t)][(int)PX / (t)];
-	y1 = MAP2D[(int)(PY + (KEY_2 * sin(RAD(ANGLE + 90)) * 10))
-	/ (t)][(int)PX / (t)];
-	x = MAP2D[(int)PY / (t)][(int)(PX + (KEY_1 * cos(ANGLE) * 10)) / (t)];
-	x1 = MAP2D[(int)PY / (t)][(int)(PX + (KEY_2
+	y = map->map2d[(int)(map->playery + (KEY_1 * sin(ANGLE) * 10)) / (t)][(int)map->playerx / (t)];
+	y1 = map->map2d[(int)(map->playery + (KEY_2 * sin(RAD(ANGLE + 90)) * 10))
+	/ (t)][(int)map->playerx / (t)];
+	x = map->map2d[(int)map->playery / (t)][(int)(map->playerx + (KEY_1 * cos(ANGLE) * 10)) / (t)];
+	x1 = map->map2d[(int)map->playery / (t)][(int)(map->playerx + (KEY_2
 	* cos(RAD(ANGLE + 90)) * 10)) / (t)];
 	ANGLE = fmod(ANGLE, 2 * M_PI);
 	if (ANGLE < 0)
 		ANGLE += 2 * M_PI;
 	if (y != '1' && y != '2' && y1 != '1' && y1 != '2')
-		PY = PY + (KEY_1 * sin(ANGLE) * 4) +
+		map->playery = map->playery + (KEY_1 * sin(ANGLE) * 4) +
 			(KEY_2 * sin(RAD(ANGLE + 90)) * 2);
 	if (x != '1' && x != '2' && x1 != '1' && x1 != '2')
-		PX = PX + (KEY_1 * cos(ANGLE) * 4) +
+		map->playerx = map->playerx + (KEY_1 * cos(ANGLE) * 4) +
 			(KEY_2 * cos(RAD(ANGLE + 90)) * 2);
 }
 
@@ -114,10 +114,10 @@ int		loop_me(t_mapdata *map)
 	if (KEY_S0 == 1)
 		ANGLE = ANGLE + ((KEY_0) * 0.06);
 	ft_movewasd(map);
-	mlx_destroy_image(MLX, IMAGE);
-	IMAGE = mlx_new_image(MLX, map->width, map->height);
-	DATA = (int *)mlx_get_data_addr(IMAGE, &SIZELINE, &ENDIAN, &ENDIAN);
+	mlx_destroy_image(map->mlx, map->mlximage);
+	map->mlximage = mlx_new_image(map->mlx, map->width, map->height);
+	map->mlxdata = (int *)mlx_get_data_addr(map->mlximage, &map->size_line, &map->endian, &map->endian);
 	ft_helpdrawasquare(map);
-	mlx_put_image_to_window(MLX, g_mlx_win, IMAGE, 0, 0);
+	mlx_put_image_to_window(map->mlx, g_mlx_win, map->mlximage, 0, 0);
 	return (0);
 }

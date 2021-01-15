@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:25:06 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:40:29 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ static void		file_write(int fd, int imagesize, t_mapdata *map)
 	imagesize /= 4;
 	while (i < imagesize)
 	{
-		pixel_array[j++] = DATA[i] & 255;
-		pixel_array[j++] = (DATA[i] & 255 << 8) >> 8;
-		pixel_array[j++] = (DATA[i] & 255 << 16) >> 16;
+		pixel_array[j++] = map->mlxdata[i] & 255;
+		pixel_array[j++] = (map->mlxdata[i] & 255 << 8) >> 8;
+		pixel_array[j++] = (map->mlxdata[i] & 255 << 16) >> 16;
 		pixel_array[j++] = 0;
 		i++;
 	}

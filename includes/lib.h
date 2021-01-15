@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:13:58 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:31:50 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:41:41 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,19 +120,6 @@ typedef struct	s_lst
 	struct s_lst	*next;
 }				t_list;
 
-# define C map->ceeling
-# define PP map->pp
-# define MAP0 map->maponestr
-# define MAP2D map->map2d
-# define MAP2DB map->map2dbefore
-# define MCHECK map->mapcheck
-# define PX map->playerx
-# define PY map->playery
-# define IMAGE map->mlximage
-# define DATA map->mlxdata
-# define ENDIAN map->endian
-# define SIZELINE map->size_line
-# define MLX map->mlx
 # define LOL map->lol
 # define ANGLE map->angle
 # define KEY_0 map->keyv0

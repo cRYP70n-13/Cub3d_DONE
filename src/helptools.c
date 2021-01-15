@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helptools.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:53 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:16:54 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:38:40 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_small_check(char *line, t_mapdata *map, int notmap)
 {
-	if (line[0] == 'R' && line[1] == ' ' && (MCHECK++ || 1))
+	if (line[0] == 'R' && line[1] == ' ' && (map->mapcheck++ || 1))
 		ft_fetch(line, map);
 	else if (line[0] == 'N' && line[1] == 'O' && line[2] == ' ')
 		ft_north(map, line);
@@ -31,9 +31,9 @@ void	ft_small_check(char *line, t_mapdata *map, int notmap)
 		ft_floor(map, line);
 	else if (line[0] == 'C' && line[1] == ' ')
 		ft_ceeling(map, line);
-	else if (line[0] != '\0' && MCHECK < 8)
+	else if (line[0] != '\0' && map->mapcheck < 8)
 		ft_error("there is a none empty line");
-	else if (line[0] != ' ' && line[0] != '1' && MCHECK == 8 && !notmap)
+	else if (line[0] != ' ' && line[0] != '1' && map->mapcheck == 8 && !notmap)
 		ft_error("something is wrong with the map");
 }
 

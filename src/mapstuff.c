@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapstuff.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:38 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:17:39 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:39:38 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 int		wallconditions(t_mapdata *map, int *i, int *j)
 {
-	if (MAP2D[*i][*j] == '0' || MAP2D[*i][*j] == '2' || MAP2D[*i][*j] == 'N' ||
-		MAP2D[*i][*j] == 'S' || MAP2D[*i][*j] == 'W' || MAP2D[*i][*j] == 'E')
+	if (map->map2d[*i][*j] == '0' || map->map2d[*i][*j] == '2' || map->map2d[*i][*j] == 'N' ||
+		map->map2d[*i][*j] == 'S' || map->map2d[*i][*j] == 'W' || map->map2d[*i][*j] == 'E')
 	{
-		if (MAP2D[*i][*j - 1] == ' ' || MAP2D[*i][*j + 1] == ' '
-			|| MAP2D[*i - 1][*j] == ' ' || MAP2D[*i + 1][*j] == ' ')
+		if (map->map2d[*i][*j - 1] == ' ' || map->map2d[*i][*j + 1] == ' '
+			|| map->map2d[*i - 1][*j] == ' ' || map->map2d[*i + 1][*j] == ' ')
 			return (1);
 	}
 	return (0);
@@ -30,20 +30,20 @@ void	continuetreatingthatmap(t_mapdata *map)
 	static int		i = -1;
 	static int		j;
 
-	while (MAP2D[++i])
+	while (map->map2d[++i])
 	{
-		ft_lstadd_front(&g_mylist, ft_lstnew((MAP2D[i])));
-		if ((MAP2D[i][0] != '1' && MAP2D[i][0] != ' ')
-			|| (MAP2D[i][ft_strlen(MAP2D[i]) - 1] != '1'
-			&& MAP2D[i][ft_strlen(MAP2D[i]) - 1] != ' '))
+		ft_lstadd_front(&g_mylist, ft_lstnew((map->map2d[i])));
+		if ((map->map2d[i][0] != '1' && map->map2d[i][0] != ' ')
+			|| (map->map2d[i][ft_strlen(map->map2d[i]) - 1] != '1'
+			&& map->map2d[i][ft_strlen(map->map2d[i]) - 1] != ' '))
 			ft_error("map extreems aren't closed");
 		j = -1;
-		while (MAP2D[i][++j])
+		while (map->map2d[i][++j])
 		{
-			if (MAP2D[i][j] == '2')
+			if (map->map2d[i][j] == '2')
 				g_count++;
 			if (i == 0 || i == g_rows - 1)
-				if (MAP2D[i][j] != '1' && MAP2D[i][j] != ' ')
+				if (map->map2d[i][j] != '1' && map->map2d[i][j] != ' ')
 					ft_error("map extreems  aren't closed,");
 		}
 	}
@@ -71,21 +71,21 @@ void	treatthatmap(t_mapdata *map)
 	static int p = 0;
 
 	continuetreatingthatmap(map);
-	while (MAP2D[++i])
+	while (map->map2d[++i])
 	{
 		j = -1;
-		while (MAP2D[i][++j])
+		while (map->map2d[i][++j])
 		{
-			if ((MAP2D[i][j] == 'N' || MAP2D[i][j] == 'W'
-				|| MAP2D[i][j] == 'E' || MAP2D[i][j] == 'S') && p == 0)
+			if ((map->map2d[i][j] == 'N' || map->map2d[i][j] == 'W'
+				|| map->map2d[i][j] == 'E' || map->map2d[i][j] == 'S') && p == 0)
 			{
 				p = 1;
-				(PX = ((j + 0.5) * g_tiles)) && (PY += ((i + 0.5) * g_tiles));
+				(map->playerx = ((j + 0.5) * g_tiles)) && (map->playery += ((i + 0.5) * g_tiles));
 			}
-			else if ((MAP2D[i][j] == 'N' || MAP2D[i][j] == 'W'
-				|| MAP2D[i][j] == 'E' || MAP2D[i][j] == 'S') && p == 1)
+			else if ((map->map2d[i][j] == 'N' || map->map2d[i][j] == 'W'
+				|| map->map2d[i][j] == 'E' || map->map2d[i][j] == 'S') && p == 1)
 				ft_error("multiplayer game");
-			if (!helptreatingthatmap(MAP2D[i][j]))
+			if (!helptreatingthatmap(map->map2d[i][j]))
 				ft_error("wrong character");
 			(wallconditions(map, &i, &j)) ? ft_error("map isn't closed") : 0;
 		}

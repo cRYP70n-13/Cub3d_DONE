@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:23 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:28:10 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:38:40 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_north(t_mapdata *map, char *line)
 		{
 			map->north = ft_substr(line, i, ft_strlen(line));
 			ft_lstadd_front(&g_mylist, ft_lstnew(map->north));
-			MCHECK++;
+			map->mapcheck++;
 			break ;
 		}
 	}
@@ -85,7 +85,7 @@ void	ft_south(t_mapdata *map, char *line)
 		{
 			map->south = ft_substr(line, i, ft_strlen(line));
 			ft_lstadd_front(&g_mylist, ft_lstnew(map->south));
-			MCHECK++;
+			map->mapcheck++;
 			break ;
 		}
 	}
@@ -101,7 +101,7 @@ void	ft_west(t_mapdata *map, char *line)
 		{
 			map->west = ft_substr(line, i, ft_strlen(line));
 			ft_lstadd_front(&g_mylist, ft_lstnew(map->west));
-			MCHECK++;
+			map->mapcheck++;
 			break ;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:15:48 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:25:06 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:41:39 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		fix_res(t_mapdata *map)
 	int	width;
 	int	height;
 
-	mlx_get_screen_size(MLX, &width, &height);
+	mlx_get_screen_size(map->mlx, &width, &height);
 	map->height = (map->height > height) ? height : map->height;
 	(map->height < 100) ? ft_error("height too small") : 0;
 	map->width = (map->width > width) ? width : map->width;

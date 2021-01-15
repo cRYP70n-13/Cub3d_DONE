@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:12 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:24:39 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:40:29 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_drawasquare(int a, int b, t_mapdata *map)
 		j = 0;
 		while (j <= 7)
 		{
-			DATA[(j + b) * map->width + (i + a)] = 0x0fffff;
+			map->mlxdata[(j + b) * map->width + (i + a)] = 0x0fffff;
 			j++;
 		}
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:13 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:16:14 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:38:06 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ void	map_manager(t_mapdata *map)
 	int		j;
 
 	i = -1;
-	MAP2D = (char**)malloc((g_rows + 1) * sizeof(char*));
+	map->map2d = (char**)malloc((g_rows + 1) * sizeof(char*));
 	while (++i < g_rows)
-		MAP2D[i] = (char*)malloc((PP + 1) * sizeof(char));
-	MAP2D[i] = NULL;
+		map->map2d[i] = (char*)malloc((map->pp + 1) * sizeof(char));
+	map->map2d[i] = NULL;
 	i = -1;
 	while (++i < g_rows)
 	{
 		j = 0;
-		while (j < PP)
+		while (j < map->pp)
 		{
-			if (j < (int)ft_strlen(MAP2DB[i]))
-				MAP2D[i][j] = MAP2DB[i][j];
+			if (j < (int)ft_strlen(map->map2dbefore[i]))
+				map->map2d[i][j] = map->map2dbefore[i][j];
 			else
-				MAP2D[i][j] = ' ';
+				map->map2d[i][j] = ' ';
 			j++;
 		}
-		MAP2D[i][j] = '\0';
+		map->map2d[i][j] = '\0';
 	}
 	i = 0;
 }

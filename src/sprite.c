@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:29:50 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:41:39 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	draw_sprite(t_mapdata *map, int id)
 			c = map->sdata[(int)((g_tiles) *
 					(g_tiles * j / (int)size) + (g_tiles * i / (int)size))];
 			if (c != map->sdata[0])
-				DATA[(int)((j + SPRITES[id].y_off) *
+				map->mlxdata[(int)((j + SPRITES[id].y_off) *
 				map->width + (i + SPRITES[id].x_off))] = c;
 		}
 	}
@@ -77,9 +77,9 @@ void	to_sprite(t_mapdata *map, int m)
 	angle = 0;
 	while (++k < g_count)
 	{
-		SPRITES[k].dist = sqrtf(((SPRITES[k].x) - PX) * ((SPRITES[k].x) - PX)
-			+ ((SPRITES[k].y) - PY) * ((SPRITES[k].y) - PY));
-		angle = atan2f(SPRITES[k].y - PY, SPRITES[k].x - PX);
+		SPRITES[k].dist = sqrtf(((SPRITES[k].x) - map->playerx) * ((SPRITES[k].x) - map->playerx)
+			+ ((SPRITES[k].y) - map->playery) * ((SPRITES[k].y) - map->playery));
+		angle = atan2f(SPRITES[k].y - map->playery, SPRITES[k].x - map->playerx);
 		while (angle - ANGLE > M_PI)
 			angle -= 2 * M_PI;
 		while (angle - ANGLE < -M_PI)
@@ -103,20 +103,20 @@ void	init_spt(t_mapdata *map)
 	if (!(SPRITES = malloc(sizeof(t_sprite) * (g_count + 1))))
 		ft_error("");
 	ft_lstadd_front(&g_mylist, ft_lstnew(SPRITES));
-	(map->simg = mlx_xpm_file_to_image(MLX, map->sprite, &SH, &SW)) ==
+	(map->simg = mlx_xpm_file_to_image(map->mlx, map->sprite, &SH, &SW)) ==
 		0 ? ft_error("wrong sprite extension") : 0;
 	map->sdata = (int *)mlx_get_data_addr(map->simg, &DT, &DT1, &DT1);
-	while (MAP2D[++i] != 0 && (j = -1) && (k < g_count))
-		while (MAP2D[i][++j] != 0 && (k < g_count))
-			if (MAP2D[i][j] == '2')
+	while (map->map2d[++i] != 0 && (j = -1) && (k < g_count))
+		while (map->map2d[i][++j] != 0 && (k < g_count))
+			if (map->map2d[i][j] == '2')
 			{
 				SPRITES[k].x_off = 0;
 				SPRITES[k].y_off = 0;
 				SPRITES[k].size = 0;
 				SPRITES[k].x = (j + 0.5f) * g_tiles;
 				SPRITES[k].y = (i + 0.5f) * g_tiles;
-				SPRITES[k].dist = sqrtf(((SPRITES[k].x) - PX) * ((SPRITES[k].x)
-					- PX) + ((SPRITES[k].y) - PY) * ((SPRITES[k].y) - PY));
+				SPRITES[k].dist = sqrtf(((SPRITES[k].x) - map->playerx) * ((SPRITES[k].x)
+					- map->playerx) + ((SPRITES[k].y) - map->playery) * ((SPRITES[k].y) - map->playery));
 				k++;
 			}
 }
