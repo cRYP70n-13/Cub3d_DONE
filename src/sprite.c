@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:50:13 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 20:01:12 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,9 @@ void	init_spt(t_mapdata *map)
 	if (!(map->sprites = malloc(sizeof(t_sprite) * (g_count + 1))))
 		ft_error("");
 	ft_lstadd_front(&g_mylist, ft_lstnew(map->sprites));
-	(map->simg = mlx_xpm_file_to_image(map->mlx, map->sprite, &SH, &SW)) ==
+	(map->simg = mlx_xpm_file_to_image(map->mlx, map->sprite, &map->s_height, &map->s_width)) ==
 		0 ? ft_error("wrong sprite extension") : 0;
-	map->sdata = (int *)mlx_get_data_addr(map->simg, &DT, &DT1, &DT1);
+	map->sdata = (int *)mlx_get_data_addr(map->simg, &map->ditch, &map->ditch1, &map->ditch1);
 	while (map->map2d[++i] != 0 && (j = -1) && (k < g_count))
 		while (map->map2d[i][++j] != 0 && (k < g_count))
 			if (map->map2d[i][j] == '2')

@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:55:04 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 20:00:01 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ static void	ft_drawwall(double wall, t_mapdata *map,
 	double	offsetx;
 	double	offsety;
 
-	if (HV)
+	if (it->hitv)
 		offsetx = (int)it->wally % g_tiles;
 	else
-		offsetx = (int)WALLX % g_tiles;
+		offsetx = (int)it->wallx % g_tiles;
 	toppix = (map->height / 2) - (wall / 2);
 	toppix = (toppix < 0) ? 0 : toppix;
 	i = toppix;
@@ -66,7 +66,7 @@ static void	ft_drawwall(double wall, t_mapdata *map,
 	{
 		offsety = (i + (wall - map->height) / 2) * ((double)g_tiles / wall);
 		if (i >= 0 && i < map->height && b >= 0 && b < map->width)
-			map->mlxdata[(int)i * map->width + b] = map->texturedata[TXTNUM][(int)offsetx
+			map->mlxdata[(int)i * map->width + b] = map->texturedata[it->textnum][(int)offsetx
 				+ (g_tiles * (int)offsety)];
 		i++;
 	}
@@ -90,7 +90,7 @@ void		generete_wall(t_mapdata *map, t_horizontal *it,
 	double		dist;
 	double		stripheight;
 
-	dist = theone * cos(ARC - map->angle);
+	dist = theone * cos(it->arc - map->angle);
 	prjplane = (map->width / 2) / tan(M_PI / 6);
 	stripheight = (g_tiles / dist) * prjplane;
 	render_wall(map, stripheight, b, it);

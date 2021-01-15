@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:12 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:48:41 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:59:02 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,16 @@ void	ft_drawaplayer(t_mapdata *map)
 	init(it, map);
 	i = 0;
 	ft_lstadd_front(&g_mylist, ft_lstnew(it));
-	ARC = map->angle - (M_PI / 6);
+	it->arc = map->angle - (M_PI / 6);
 	while (i < map->width)
 	{
-		if (ARC < 0)
-			ARC += 2 * M_PI;
-		if (ARC > M_PI * 2)
-			ARC -= (M_PI * 2);
+		if (it->arc < 0)
+			it->arc += 2 * M_PI;
+		if (it->arc > M_PI * 2)
+			it->arc -= (M_PI * 2);
 		map->raydist[i] = colmdist(map, it);
 		generete_wall(map, it, i, map->raydist[i]);
-		ARC += (M_PI / 3) / map->width;
+		it->arc += (M_PI / 3) / map->width;
 		i++;
 	}
 	free(tmp);

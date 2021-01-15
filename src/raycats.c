@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:07 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:54:10 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/15 19:59:02 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int		iswall(double x, double y, t_mapdata *map)
 
 void	rayfacing(t_horizontal *it)
 {
-	it->facedown = ((ARC > 0) && (ARC < M_PI));
+	it->facedown = ((it->arc > 0) && (it->arc < M_PI));
 	it->faceup = !it->facedown;
-	it->faceright = ((ARC < M_PI_2) || (ARC > (1.5 * M_PI)));
+	it->faceright = ((it->arc < M_PI_2) || (it->arc > (1.5 * M_PI)));
 	it->faceleft = !it->faceright;
 }
 
@@ -49,9 +49,9 @@ double	ft_horizontal(t_mapdata *map, t_horizontal *it)
 
 	h = 0;
 	ay = floor(map->playery / g_tiles) * g_tiles + (g_tiles * it->facedown);
-	ax = map->playerx + ((ay - map->playery) / tan(ARC));
+	ax = map->playerx + ((ay - map->playery) / tan(it->arc));
 	ystep = g_tiles * (it->faceup ? -1 : 1);
-	xstep = g_tiles / tan(ARC);
+	xstep = g_tiles / tan(it->arc);
 	xstep *= (it->faceleft && xstep > 0) ? -1 : 1;
 	xstep *= (it->faceright && xstep < 0) ? -1 : 1;
 	if (it->faceup)
@@ -61,8 +61,8 @@ double	ft_horizontal(t_mapdata *map, t_horizontal *it)
 		ax += xstep;
 		ay += ystep;
 	}
-	WALLHX = ax;
-	WALLHY = ay;
+	it->wallhx = ax;
+	it->wallhy = ay;
 	return (sqrtf((ay - map->playery) * (ay - map->playery) + (ax - map->playerx) * (ax - map->playerx)));
 }
 
@@ -76,9 +76,9 @@ double	ft_vertical(t_mapdata *map, t_horizontal *it)
 
 	hu = 0;
 	ax = floor(map->playerx / g_tiles) * g_tiles + (g_tiles * it->faceright);
-	ay = map->playery + ((ax - map->playerx) * tan(ARC));
+	ay = map->playery + ((ax - map->playerx) * tan(it->arc));
 	xstep = g_tiles * (it->faceleft ? -1 : 1);
-	ystep = g_tiles * tan(ARC);
+	ystep = g_tiles * tan(it->arc);
 	ystep *= (it->faceup && (ystep > 0)) ? -1 : 1;
 	ystep *= (it->facedown && (ystep < 0)) ? -1 : 1;
 	if (it->faceleft)
@@ -88,7 +88,7 @@ double	ft_vertical(t_mapdata *map, t_horizontal *it)
 		ax += xstep;
 		ay += ystep;
 	}
-	WALLVX = ax;
-	WALLVY = ay;
+	it->wallvx = ax;
+	it->wallvy = ay;
 	return (sqrtf((ay - map->playery) * (ay - map->playery) + (ax - map->playerx) * (ax - map->playerx)));
 }
