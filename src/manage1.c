@@ -6,13 +6,13 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:29 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 12:48:42 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:05:43 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib.h"
 
-void	ft_east(t_mapdata *map, char *line)
+void	east(t_mapdata *map, char *line)
 {
 	static int i = 1;
 
@@ -44,7 +44,7 @@ void	ft_sprite(t_mapdata *map, char *line)
 	}
 }
 
-void	ft_floor(t_mapdata *map, char *line)
+void	draw_floor(t_mapdata *map, char *line)
 {
 	static int	i = 0;
 	static int	j = 0;

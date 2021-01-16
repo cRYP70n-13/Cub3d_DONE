@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:53 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:59:34 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:05:43 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	ft_small_check(char *line, t_mapdata *map, int notmap)
 	else if (line[0] == 'W' && line[1] == 'E' && line[2] == ' ')
 		ft_west(map, line);
 	else if (line[0] == 'E' && line[1] == 'A' && line[2] == ' ')
-		ft_east(map, line);
+		east(map, line);
 	else if (line[0] == 'S' && line[1] == ' ')
 		ft_sprite(map, line);
 	else if (line[0] == 'F' && line[1] == ' ')
-		ft_floor(map, line);
+		draw_floor(map, line);
 	else if (line[0] == 'C' && line[1] == ' ')
 		ft_ceeling(map, line);
 	else if (line[0] != '\0' && map->mapcheck < 8)

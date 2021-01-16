@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:13:58 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:51:09 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:05:43 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,10 +137,10 @@ void			ft_readno(int fd, t_mapdata *map);
 void			ft_north(t_mapdata *map, char *line);
 void			ft_south(t_mapdata *map, char *line);
 void			ft_west(t_mapdata *map, char *line);
-void			ft_east(t_mapdata *map, char *line);
+void			east(t_mapdata *map, char *line);
 void			ft_sprite(t_mapdata *map, char *line);
 void			skipspace(char **line);
-void			ft_floor(t_mapdata *map, char *line);
+void			draw_floor(t_mapdata *map, char *line);
 void			ft_ceeling(t_mapdata *map, char *line);
 void			ft_fetch(char *line, t_mapdata *map);
 void			ft_drawasquare(int a, int b, t_mapdata *map);
