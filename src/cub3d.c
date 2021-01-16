@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:15:35 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:12:09 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:49:54 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	ft_read(int fd, t_mapdata *map)
 		ft_small_check(line, map, notmap);
 		if (map->mapcheck == 8 && notmap == 0)
 		{
-			(map->pp < (int)ft_strlen(line)) ? map->pp = (int)ft_strlen(line) : map->pp;
+			(map->pp < ft_strlen(line)) ? map->pp = ft_strlen(line) : map->pp;
 			if (helpread(line, map))
 				continue;
 		}

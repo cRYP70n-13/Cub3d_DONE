@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:21 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:16:22 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:47:34 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char		*ft_strjoin(char *s1, char *s2)
 	return (new);
 }
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char		*ft_substr(char const *s, int start, size_t len)
 {
 	char	*ss;
 	int		i;
@@ -77,9 +77,9 @@ char		*ft_strchr(const char *s, int c)
 	return (0);
 }
 
-size_t		ft_strlen(const char *s)
+int			ft_strlen(const char *s)
 {
-	size_t i;
+	int i;
 
 	i = 0;
 	while (s[i] != '\0')

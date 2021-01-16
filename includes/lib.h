@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:13:58 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:13:41 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:49:19 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,14 +176,13 @@ int				ft_iswall(t_mapdata *map);
 int				mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey);
 int				g_tiles;
 int				g_rows;
-size_t			ft_strlen(const char *s);
+int				ft_strlen(const char *s);
 char			*ft_strtrim(char *s1, char const *set);
 char			*ft_strdup(const char *s1);
-char			*ft_substr(char const *dst, unsigned int start, size_t len);
+char			*ft_substr(char const *dst, int start, size_t len);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strjoin(char *s1, char *s2);
 char			**ft_split(char const *s, char c);
-char			*ft_substr(char const *s, unsigned int start, size_t len);
 void			map_manager(t_mapdata *map);
 float			sean(t_mapdata *map);
 t_list			*ft_lstnew(void *content);

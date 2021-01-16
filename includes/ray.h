@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:06 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:11:55 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:32:16 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void			ft_facewhere(t_horizontal *it);
 void			generete_wall(t_mapdata *map, t_horizontal *it,
 	int b, double theone);
 void			init_spt(t_mapdata *map);
-void			rayfacing(t_horizontal *it);
+void			ray_direction(t_horizontal *it);
 void			square_helper(t_mapdata *map);
 void			picktxt(t_horizontal *it);
 void			draw_player(t_mapdata *map);
 void			save_bmp(t_mapdata *map);
 void			texture(t_mapdata *map);
-double			ft_horizontal(t_mapdata *map, t_horizontal *it);
-double			ft_vertical(t_mapdata *map, t_horizontal *it);
+double			cast_horz(t_mapdata *map, t_horizontal *it);
+double			cast_vert(t_mapdata *map, t_horizontal *it);
 double			colmdist(t_mapdata *map, t_horizontal *it);
 
 #endif

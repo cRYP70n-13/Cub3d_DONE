@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:17:59 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:33:25 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	render_wall(t_mapdata *map, double stripheight,
 	ft_drawfloor(wall, map, b);
 }
 
-void		generete_wall(t_mapdata *map, t_horizontal *it,
+void	generete_wall(t_mapdata *map, t_horizontal *it,
 	int b, double theone)
 {
 	double		prjplane;

@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:23 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:13:41 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:36:28 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	get_data(char *line, t_mapdata *map)
 {
-	static int	i = 0;
-	static int	cond1 = 1;
-	static int	cond2 = 1;
-	static int	check = 0;
+	int				i;
+	static int		cond1 = 1;
+	static int		cond2 = 1;
+	static int		check = 0;
 
+	i = 0;
 	while (line[i++] != '\0')
 	{
 		(ft_isalpha(line[i])) ? ft_error("there are some abnormal chars") : 0;
@@ -61,8 +62,9 @@ int		ft_intlen(int num)
 
 void	north(t_mapdata *map, char *line)
 {
-	static int	i = 1;
+	int	i;
 
+	i = 1;
 	while (line[++i])
 	{
 		if (line[i] == '.' || ft_isalpha(line[i]))
@@ -77,8 +79,9 @@ void	north(t_mapdata *map, char *line)
 
 void	south(t_mapdata *map, char *line)
 {
-	static int i = 1;
+	int i;
 
+	i = 1;
 	while (line[++i])
 	{
 		if (line[i] == '.' || ft_isalpha(line[i]))
@@ -93,8 +96,9 @@ void	south(t_mapdata *map, char *line)
 
 void	west(t_mapdata *map, char *line)
 {
-	static int i = 1;
+	int i;
 
+	i = 1;
 	while (line[++i])
 	{
 		if (line[i] == '.' || ft_isalpha(line[i]))

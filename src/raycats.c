@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:07 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 12:47:42 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:32:16 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		iswall(double x, double y, t_mapdata *map)
 	return (0);
 }
 
-void	rayfacing(t_horizontal *it)
+void	ray_direction(t_horizontal *it)
 {
 	it->facedown = ((it->arc > 0) && (it->arc < M_PI));
 	it->faceup = !it->facedown;
@@ -33,13 +33,13 @@ void	rayfacing(t_horizontal *it)
 	it->faceleft = !it->faceright;
 }
 
-int		inwin(double x, double y, t_mapdata *map)
+int		valid_cord(double x, double y, t_mapdata *map)
 {
 	return (((x >= 0) && (x <= g_tiles * map->pp))
 		&& ((y >= 0) && (y <= g_rows * g_tiles)));
 }
 
-double	ft_horizontal(t_mapdata *map, t_horizontal *it)
+double	cast_horz(t_mapdata *map, t_horizontal *it)
 {
 	double	ax;
 	double	ay;
@@ -56,7 +56,7 @@ double	ft_horizontal(t_mapdata *map, t_horizontal *it)
 	xstep *= (it->faceright && xstep < 0) ? -1 : 1;
 	if (it->faceup)
 		h++;
-	while (inwin(ax, ay - h, map) && !iswall(ax, ay - h, map))
+	while (valid_cord(ax, ay - h, map) && !iswall(ax, ay - h, map))
 	{
 		ax += xstep;
 		ay += ystep;
@@ -67,7 +67,7 @@ double	ft_horizontal(t_mapdata *map, t_horizontal *it)
 		+ (ax - map->playerx) * (ax - map->playerx)));
 }
 
-double	ft_vertical(t_mapdata *map, t_horizontal *it)
+double	cast_vert(t_mapdata *map, t_horizontal *it)
 {
 	double	ax;
 	double	ay;
@@ -84,7 +84,7 @@ double	ft_vertical(t_mapdata *map, t_horizontal *it)
 	ystep *= (it->facedown && (ystep < 0)) ? -1 : 1;
 	if (it->faceleft)
 		hu++;
-	while (inwin(ax - hu, ay, map) && !iswall(ax - hu, ay, map))
+	while (valid_cord(ax - hu, ay, map) && !iswall(ax - hu, ay, map))
 	{
 		ax += xstep;
 		ay += ystep;

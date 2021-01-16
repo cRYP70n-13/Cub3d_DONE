@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:38 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:12:09 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:41:19 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,8 @@ void	map_parser(t_mapdata *map)
 		j = -1;
 		while (map->map2d[i][++j])
 		{
-			if ((map->map2d[i][j] == 'N' || map->map2d[i][j] == 'W'
-				|| map->map2d[i][j] == 'E'
-				|| map->map2d[i][j] == 'S') && p == 0)
+			if ((map->map2d[i][j] == 'N' || map->map2d[i][j] == 'W' ||
+			map->map2d[i][j] == 'E' || map->map2d[i][j] == 'S') && p == 0)
 			{
 				p = 1;
 				(map->playerx = ((j + 0.5) * g_tiles)) &&

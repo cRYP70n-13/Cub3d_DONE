@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:13 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:38:06 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:49:54 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	map_manager(t_mapdata *map)
 		j = 0;
 		while (j < map->pp)
 		{
-			if (j < (int)ft_strlen(map->map2dbefore[i]))
+			if (j < ft_strlen(map->map2dbefore[i]))
 				map->map2d[i][j] = map->map2dbefore[i][j];
 			else
 				map->map2d[i][j] = ' ';

@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:53 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:13:41 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:32:16 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ double	colmdist(t_mapdata *map, t_horizontal *it)
 	double hdist;
 	double vdist;
 
-	rayfacing(it);
+	ray_direction(it);
 	it->hith = 0;
 	it->hitv = 0;
 	dist = 0;
-	hdist = ft_horizontal(map, it);
-	vdist = ft_vertical(map, it);
+	hdist = cast_horz(map, it);
+	vdist = cast_vert(map, it);
 	if (hdist < vdist)
 	{
 		it->wallx = it->wallhx;
