@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okimdil <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:31 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:16:42 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 18:51:58 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	ft_error(char *s)
 	i = -1;
 	ft_lstclear(&g_mylist);
 	e = "\033[1;31m Error\n >> \033[0;31m";
-	write(1, e, ft_strlen(e));
+	write(2, e, ft_strlen(e));
 	while (s[++i] != '\0')
-		write(1, s + i, 1);
-	write(1, "\n", 2);
+		write(2, s + i, 1);
+	write(2, "\n", 2);
 	exit(EXIT_FAILURE);
 }
 
