@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:06 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 20:01:17 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:11:55 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void			generete_wall(t_mapdata *map, t_horizontal *it,
 	int b, double theone);
 void			init_spt(t_mapdata *map);
 void			rayfacing(t_horizontal *it);
-void			ft_helpdrawasquare(t_mapdata *map);
+void			square_helper(t_mapdata *map);
 void			picktxt(t_horizontal *it);
-void			ft_drawaplayer(t_mapdata *map);
+void			draw_player(t_mapdata *map);
 void			save_bmp(t_mapdata *map);
 void			texture(t_mapdata *map);
 double			ft_horizontal(t_mapdata *map, t_horizontal *it);

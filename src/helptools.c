@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:53 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:06:47 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:13:41 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 void	ft_small_check(char *line, t_mapdata *map, int notmap)
 {
 	if (line[0] == 'R' && line[1] == ' ' && (map->mapcheck++ || 1))
-		ft_fetch(line, map);
+		get_data(line, map);
 	else if (line[0] == 'N' && line[1] == 'O' && line[2] == ' ')
-		ft_north(map, line);
+		north(map, line);
 	else if (line[0] == 'S' && line[1] == 'O' && line[2] == ' ')
-		ft_south(map, line);
+		south(map, line);
 	else if (line[0] == 'W' && line[1] == 'E' && line[2] == ' ')
-		ft_west(map, line);
+		west(map, line);
 	else if (line[0] == 'E' && line[1] == 'A' && line[2] == ' ')
 		east(map, line);
 	else if (line[0] == 'S' && line[1] == ' ')

@@ -6,13 +6,13 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:23 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:38:40 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:13:41 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib.h"
 
-void	ft_fetch(char *line, t_mapdata *map)
+void	get_data(char *line, t_mapdata *map)
 {
 	static int	i = 0;
 	static int	cond1 = 1;
@@ -59,7 +59,7 @@ int		ft_intlen(int num)
 	return (i);
 }
 
-void	ft_north(t_mapdata *map, char *line)
+void	north(t_mapdata *map, char *line)
 {
 	static int	i = 1;
 
@@ -75,7 +75,7 @@ void	ft_north(t_mapdata *map, char *line)
 	}
 }
 
-void	ft_south(t_mapdata *map, char *line)
+void	south(t_mapdata *map, char *line)
 {
 	static int i = 1;
 
@@ -91,7 +91,7 @@ void	ft_south(t_mapdata *map, char *line)
 	}
 }
 
-void	ft_west(t_mapdata *map, char *line)
+void	west(t_mapdata *map, char *line)
 {
 	static int i = 1;
 

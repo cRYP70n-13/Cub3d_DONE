@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:13:58 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:05:43 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:13:41 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,21 +134,21 @@ void			ft_init(t_mapdata *map);
 void			ft_error(char *s);
 void			ft_intro(int fd, t_mapdata *map);
 void			ft_readno(int fd, t_mapdata *map);
-void			ft_north(t_mapdata *map, char *line);
-void			ft_south(t_mapdata *map, char *line);
-void			ft_west(t_mapdata *map, char *line);
+void			north(t_mapdata *map, char *line);
+void			south(t_mapdata *map, char *line);
+void			west(t_mapdata *map, char *line);
 void			east(t_mapdata *map, char *line);
 void			ft_sprite(t_mapdata *map, char *line);
 void			skipspace(char **line);
 void			draw_floor(t_mapdata *map, char *line);
-void			ft_ceeling(t_mapdata *map, char *line);
-void			ft_fetch(char *line, t_mapdata *map);
-void			ft_drawasquare(int a, int b, t_mapdata *map);
+void			ceiling(t_mapdata *map, char *line);
+void			get_data(char *line, t_mapdata *map);
+void			draw_square(int a, int b, t_mapdata *map);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 void			ft_lstclear(t_list **lst);
-void			ft_matrix(t_mapdata *map, char *line);
+void			map_one_line(t_mapdata *map, char *line);
 void			ft_joindouble(t_mapdata *map);
-void			treatthatmap(t_mapdata *map);
+void			map_parser(t_mapdata *map);
 void			ft_read(int fd, t_mapdata *map);
 void			ft_helpdrawasquare2(t_mapdata *map);
 void			ft_bzero(void *s, size_t n);
@@ -160,7 +160,7 @@ void			ft_small_check(char *line, t_mapdata *map, int notmap);
 void			fix_res(t_mapdata *map);
 void			*g_mlx_win;
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
-int				loop_me(t_mapdata *map);
+int				create_frame(t_mapdata *map);
 int				ft_isalpha(int c);
 int				ft_fill(char **last, int fd);
 int				get_next_line(int fd, char **line);
