@@ -6,14 +6,14 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 11:37:19 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:17:59 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib.h"
 #include "../includes/ray.h"
 
-static void	ft_drawceeling(double wall, t_mapdata *map, int b)
+void	ft_drawceeling(double wall, t_mapdata *map, int b)
 {
 	int			i;
 	int			j;
@@ -28,7 +28,7 @@ static void	ft_drawceeling(double wall, t_mapdata *map, int b)
 	}
 }
 
-static void	ft_drawfloor(double wall, t_mapdata *map, int b)
+void	ft_drawfloor(double wall, t_mapdata *map, int b)
 {
 	int			i;
 	int			j;
@@ -43,7 +43,7 @@ static void	ft_drawfloor(double wall, t_mapdata *map, int b)
 	}
 }
 
-static void	ft_drawwall(double wall, t_mapdata *map,
+void	ft_drawwall(double wall, t_mapdata *map,
 	t_horizontal *it, int b)
 {
 	double	i;
@@ -72,7 +72,7 @@ static void	ft_drawwall(double wall, t_mapdata *map,
 	}
 }
 
-static void	render_wall(t_mapdata *map, double stripheight,
+void	render_wall(t_mapdata *map, double stripheight,
 	int b, t_horizontal *it)
 {
 	double	wall;
