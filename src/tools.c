@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:12 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:07:36 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:11:12 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-void	ft_drawasquare(int a, int b, t_mapdata *map)
+void	draw_square(int a, int b, t_mapdata *map)
 {
 	int			i;
 	int			j;
@@ -47,7 +47,7 @@ void	ft_drawasquare(int a, int b, t_mapdata *map)
 	}
 }
 
-void	ft_drawaplayer(t_mapdata *map)
+void	draw_player(t_mapdata *map)
 {
 	int				i;
 	t_horizontal	*it;

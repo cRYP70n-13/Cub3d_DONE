@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:07:16 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:11:55 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init(t_horizontal *it, t_mapdata *map)
 	map->ceeling[2] = 0;
 }
 
-void	mlx_stuff(t_mapdata *map)
+void	set_mlx_up(t_mapdata *map)
 {
 	static int c = 0;
 
@@ -46,7 +46,7 @@ void	mlx_stuff(t_mapdata *map)
 		// init_spt(map);
 		c = 1;
 	}
-	ft_helpdrawasquare(map);
+	square_helper(map);
 	mlx_put_image_to_window(map->mlx, g_mlx_win, map->mlximage, 0, 0);
 	if (map->screen == 1)
 	{
@@ -54,7 +54,7 @@ void	mlx_stuff(t_mapdata *map)
 		ft_lstclear(&g_mylist);
 		exit(1);
 	}
-	mlx_loop_hook(map->mlx, &loop_me, map);
+	mlx_loop_hook(map->mlx, &create_frame, map);
 	mlx_loop(map->mlx);
 }
 
@@ -92,6 +92,6 @@ int		main(int argc, char **argv)
 	(ft_checkex(argv[1])) ? 0 : ft_error("wrong extension");
 	texture(map);
 	map->angle = sean(map);
-	mlx_stuff(map);
+	set_mlx_up(map);
 	ft_lstclear(&g_mylist);
 }

@@ -6,14 +6,14 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:54 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 12:54:00 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:11:55 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib.h"
 #include "../includes/ray.h"
 
-int		ft_quit(void)
+int		ft_exit(void)
 {
 	ft_error("game over");
 	return (0);
@@ -77,7 +77,7 @@ int		key_pressed(int key, t_mapdata *map)
 	return (0);
 }
 
-void	ft_movewasd(t_mapdata *map)
+void	movements(t_mapdata *map)
 {
 	float	x;
 	float	y;
@@ -106,22 +106,22 @@ void	ft_movewasd(t_mapdata *map)
 			(map->keyv2 * cos(RAD(map->angle + 90)) * 2);
 }
 
-int		loop_me(t_mapdata *map)
+int		create_frame(t_mapdata *map)
 {
 	mlx_hook(g_mlx_win, 2, 0, &key_pressed, map);
 	mlx_hook(g_mlx_win, 3, 0, &key_released, map);
-	mlx_hook(g_mlx_win, 17, 0L, &ft_quit, map);
+	mlx_hook(g_mlx_win, 17, 0L, &ft_exit, map);
 	map->angle = fmod(map->angle, 2 * M_PI);
 	if (map->angle < 0)
 		map->angle += 2 * M_PI;
 	if (map->keys0 == 1)
 		map->angle = map->angle + ((map->keyv0) * 0.06);
-	ft_movewasd(map);
+	movements(map);
 	mlx_destroy_image(map->mlx, map->mlximage);
 	map->mlximage = mlx_new_image(map->mlx, map->width, map->height);
 	map->mlxdata = (int *)mlx_get_data_addr(map->mlximage,
 						&map->size_line, &map->endian, &map->endian);
-	ft_helpdrawasquare(map);
+	square_helper(map);
 	mlx_put_image_to_window(map->mlx, g_mlx_win, map->mlximage, 0, 0);
 	return (0);
 }

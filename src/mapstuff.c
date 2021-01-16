@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:38 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:09:09 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:12:09 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		map_helper_2(char c)
 
 int		helpread(char *line, t_mapdata *map)
 {
-	ft_matrix(map, line);
+	map_one_line(map, line);
 	return (0);
 }
 
