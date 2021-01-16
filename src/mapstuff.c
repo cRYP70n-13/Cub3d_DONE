@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:38 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 12:51:37 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:09:09 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		wallconditions(t_mapdata *map, int *i, int *j)
 	return (0);
 }
 
-void	continuetreatingthatmap(t_mapdata *map)
+void	map_helper(t_mapdata *map)
 {
 	static int		i = -1;
 	static int		j;
@@ -51,7 +51,7 @@ void	continuetreatingthatmap(t_mapdata *map)
 	}
 }
 
-int		helptreatingthatmap(char c)
+int		map_helper_2(char c)
 {
 	if (c != '1' && c != '2' && c != '0' && c != 'N'
 		&& c != 'S' && c != 'E' && c != 'W' && c != ' ')
@@ -66,13 +66,13 @@ int		helpread(char *line, t_mapdata *map)
 	return (0);
 }
 
-void	treatthatmap(t_mapdata *map)
+void	map_parser(t_mapdata *map)
 {
 	static int i = -1;
 	static int j = -1;
 	static int p = 0;
 
-	continuetreatingthatmap(map);
+	map_helper(map);
 	while (map->map2d[++i])
 	{
 		j = -1;
@@ -89,7 +89,7 @@ void	treatthatmap(t_mapdata *map)
 			else if ((map->map2d[i][j] == 'N' || map->map2d[i][j] == 'W'
 			|| map->map2d[i][j] == 'E' || map->map2d[i][j] == 'S') && p == 1)
 				ft_error("multiplayer game");
-			if (!helptreatingthatmap(map->map2d[i][j]))
+			if (!map_helper_2(map->map2d[i][j]))
 				ft_error("wrong character");
 			(wallconditions(map, &i, &j)) ? ft_error("map isn't closed") : 0;
 		}

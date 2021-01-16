@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 12:41:21 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:07:16 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	mlx_stuff(t_mapdata *map)
 					&map->size_line, &map->endian, &map->endian);
 	if (c == 0)
 	{
-		init_spt(map);
+		// init_spt(map);
 		c = 1;
 	}
 	ft_helpdrawasquare(map);

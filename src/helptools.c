@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:53 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:05:43 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:06:47 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_small_check(char *line, t_mapdata *map, int notmap)
 	else if (line[0] == 'F' && line[1] == ' ')
 		draw_floor(map, line);
 	else if (line[0] == 'C' && line[1] == ' ')
-		ft_ceeling(map, line);
+		ceiling(map, line);
 	else if (line[0] != '\0' && map->mapcheck < 8)
 		ft_error("there is a none empty line");
 	else if (line[0] != ' ' && line[0] != '1' && map->mapcheck == 8 && !notmap)

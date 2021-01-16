@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:29 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:05:43 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:09:09 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	draw_floor(t_mapdata *map, char *line)
 	(j != 3) ? ft_error("not a valid F color") : 0;
 }
 
-void	ft_ceeling(t_mapdata *map, char *line)
+void	ceiling(t_mapdata *map, char *line)
 {
 	static int	i = 0;
 	static int	j = 0;
@@ -119,5 +119,5 @@ void	ft_intro(int fd, t_mapdata *map)
 	ft_lstadd_front(&g_mylist, ft_lstnew(map->maponestr));
 	ft_lstadd_front(&g_mylist, ft_lstnew((map->map2d)));
 	ft_lstadd_front(&g_mylist, ft_lstnew((map->map2dbefore)));
-	treatthatmap(map);
+	map_parser(map);
 }
