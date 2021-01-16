@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:14:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 20:00:01 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 11:37:19 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ static void	ft_drawwall(double wall, t_mapdata *map,
 	{
 		offsety = (i + (wall - map->height) / 2) * ((double)g_tiles / wall);
 		if (i >= 0 && i < map->height && b >= 0 && b < map->width)
-			map->mlxdata[(int)i * map->width + b] = map->texturedata[it->textnum][(int)offsetx
-				+ (g_tiles * (int)offsety)];
+			map->mlxdata[(int)i * map->width + b] =
+		map->texturedata[it->textnum][(int)offsetx + (g_tiles * (int)offsety)];
 		i++;
 	}
 }

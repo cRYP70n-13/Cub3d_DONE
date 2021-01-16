@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:49:07 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 12:41:21 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	mlx_stuff(t_mapdata *map)
 
 	g_mlx_win = mlx_new_window(map->mlx, map->width, map->height, "CUB3D");
 	map->mlximage = mlx_new_image(map->mlx, map->width, map->height);
-	map->mlxdata = (int *)mlx_get_data_addr(map->mlximage, &map->size_line, &map->endian, &map->endian);
+	map->mlxdata = (int *)mlx_get_data_addr(map->mlximage,
+					&map->size_line, &map->endian, &map->endian);
 	if (c == 0)
 	{
 		init_spt(map);
@@ -85,9 +86,9 @@ int		main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (argc == 3)
 		((ft_strncmp(argv[2], "--save", 6) == 0)) ?
-			map->screen = 1 : ft_error("wrong argument");
-	((argc == 2 && fd > 0) || (argc == 3 && map->screen == 1)) ? ft_intro(fd, map)
-		: ft_error("where is my map");
+		map->screen = 1 : ft_error("wrong argument");
+	((argc == 2 && fd > 0) || (argc == 3 && map->screen == 1)) ?
+		ft_intro(fd, map) : ft_error("where is my map");
 	(ft_checkex(argv[1])) ? 0 : ft_error("wrong extension");
 	texture(map);
 	map->angle = sean(map);

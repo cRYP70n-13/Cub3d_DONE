@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:54 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:46:01 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 12:54:00 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,13 @@ void	ft_movewasd(t_mapdata *map)
 	int		t;
 
 	t = g_tiles;
-	y = map->map2d[(int)(map->playery + (map->keyv1 * sin(map->angle) * 10)) / (t)][(int)map->playerx / (t)];
-	y1 = map->map2d[(int)(map->playery + (map->keyv2 * sin(RAD(map->angle + 90)) * 10))
-	/ (t)][(int)map->playerx / (t)];
-	x = map->map2d[(int)map->playery / (t)][(int)(map->playerx + (map->keyv1 * cos(map->angle) * 10)) / (t)];
+	y = map->map2d[(int)(map->playery + (map->keyv1 * sin(map->angle) * 10))
+			/ (t)][(int)map->playerx / (t)];
+	y1 = map->map2d[(int)(map->playery +
+			(map->keyv2 * sin(RAD(map->angle + 90)) * 10))
+			/ (t)][(int)map->playerx / (t)];
+	x = map->map2d[(int)map->playery / (t)]
+		[(int)(map->playerx + (map->keyv1 * cos(map->angle) * 10)) / (t)];
 	x1 = map->map2d[(int)map->playery / (t)][(int)(map->playerx + (map->keyv2
 	* cos(RAD(map->angle + 90)) * 10)) / (t)];
 	map->angle = fmod(map->angle, 2 * M_PI);
@@ -116,7 +119,8 @@ int		loop_me(t_mapdata *map)
 	ft_movewasd(map);
 	mlx_destroy_image(map->mlx, map->mlximage);
 	map->mlximage = mlx_new_image(map->mlx, map->width, map->height);
-	map->mlxdata = (int *)mlx_get_data_addr(map->mlximage, &map->size_line, &map->endian, &map->endian);
+	map->mlxdata = (int *)mlx_get_data_addr(map->mlximage,
+						&map->size_line, &map->endian, &map->endian);
 	ft_helpdrawasquare(map);
 	mlx_put_image_to_window(map->mlx, g_mlx_win, map->mlximage, 0, 0);
 	return (0);

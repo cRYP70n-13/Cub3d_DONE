@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:07 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:59:02 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 12:47:42 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ double	ft_horizontal(t_mapdata *map, t_horizontal *it)
 	}
 	it->wallhx = ax;
 	it->wallhy = ay;
-	return (sqrtf((ay - map->playery) * (ay - map->playery) + (ax - map->playerx) * (ax - map->playerx)));
+	return (sqrtf((ay - map->playery) * (ay - map->playery)
+		+ (ax - map->playerx) * (ax - map->playerx)));
 }
 
 double	ft_vertical(t_mapdata *map, t_horizontal *it)
@@ -90,5 +91,6 @@ double	ft_vertical(t_mapdata *map, t_horizontal *it)
 	}
 	it->wallvx = ax;
 	it->wallvy = ay;
-	return (sqrtf((ay - map->playery) * (ay - map->playery) + (ax - map->playerx) * (ax - map->playerx)));
+	return (sqrtf((ay - map->playery) * (ay - map->playery)
+		+ (ax - map->playerx) * (ax - map->playerx)));
 }

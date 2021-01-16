@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:38 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:39:38 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/16 12:51:37 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 int		wallconditions(t_mapdata *map, int *i, int *j)
 {
-	if (map->map2d[*i][*j] == '0' || map->map2d[*i][*j] == '2' || map->map2d[*i][*j] == 'N' ||
-		map->map2d[*i][*j] == 'S' || map->map2d[*i][*j] == 'W' || map->map2d[*i][*j] == 'E')
+	if (map->map2d[*i][*j] == '0' || map->map2d[*i][*j] == '2'
+		|| map->map2d[*i][*j] == 'N' ||
+		map->map2d[*i][*j] == 'S' || map->map2d[*i][*j] == 'W'
+		|| map->map2d[*i][*j] == 'E')
 	{
 		if (map->map2d[*i][*j - 1] == ' ' || map->map2d[*i][*j + 1] == ' '
 			|| map->map2d[*i - 1][*j] == ' ' || map->map2d[*i + 1][*j] == ' ')
@@ -77,13 +79,15 @@ void	treatthatmap(t_mapdata *map)
 		while (map->map2d[i][++j])
 		{
 			if ((map->map2d[i][j] == 'N' || map->map2d[i][j] == 'W'
-				|| map->map2d[i][j] == 'E' || map->map2d[i][j] == 'S') && p == 0)
+				|| map->map2d[i][j] == 'E'
+				|| map->map2d[i][j] == 'S') && p == 0)
 			{
 				p = 1;
-				(map->playerx = ((j + 0.5) * g_tiles)) && (map->playery += ((i + 0.5) * g_tiles));
+				(map->playerx = ((j + 0.5) * g_tiles)) &&
+				(map->playery += ((i + 0.5) * g_tiles));
 			}
 			else if ((map->map2d[i][j] == 'N' || map->map2d[i][j] == 'W'
-				|| map->map2d[i][j] == 'E' || map->map2d[i][j] == 'S') && p == 1)
+			|| map->map2d[i][j] == 'E' || map->map2d[i][j] == 'S') && p == 1)
 				ft_error("multiplayer game");
 			if (!helptreatingthatmap(map->map2d[i][j]))
 				ft_error("wrong character");
