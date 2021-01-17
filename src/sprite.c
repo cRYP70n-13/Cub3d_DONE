@@ -6,21 +6,18 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 16:00:06 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 16:08:32 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lib.h"
 #include "../includes/ray.h"
 
-void	draw_sprite(t_mapdata *map, int id)
+void	draw_sprite(t_mapdata *map, int id, int i, int j)
 {
-	int		i;
-	int		j;
 	int		c;
 	float	size;
 
-	i = -1;
 	size = map->sprites[id].size;
 	while (++i < size - 1)
 	{
@@ -92,7 +89,7 @@ void	to_sprite(t_mapdata *map, float angle)
 		map->sprites[k].x_off = ((DEG(angle) - DEG(map->angle)) * map->width) /
 		(float)g_tiles + ((map->width / 2.0f) -
 						(int)map->sprites[k].size / 2.0f);
-		draw_sprite(map, k);
+		draw_sprite(map, k, -1, -1);
 	}
 }
 
