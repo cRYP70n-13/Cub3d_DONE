@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:38 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 14:32:57 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 17:30:38 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	map_helper(t_mapdata *map)
 				g_count++;
 			if (i == 0 || i == g_rows - 1)
 				if (map->map2d[i][j] != '1' && map->map2d[i][j] != ' ')
-					err("map extreems  aren't closed,");
+					err("map extreems  aren't closed");
 		}
 	}
 }

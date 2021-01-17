@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 17:31:57 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void			save_bmp(t_mapdata *map)
 	int			fd;
 
 	ft_bzero(&info_bmp_file, sizeof(t_bmp_file));
-	fd = create_file("screenshot.bmp");
+	fd = create_file("cRYP70n.bmp");
 	head_make(&info_bmp_file, map);
 	head_write(fd, info_bmp_file);
 	file_write(fd, info_bmp_file.bisizeimage, map);

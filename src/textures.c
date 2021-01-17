@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:33 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 17:41:15 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ float	sean(t_mapdata *map)
 {
 	if (map->map2d[(int)map->playery / g_tiles]
 					[(int)map->playerx / g_tiles] == 'N')
-		return (RAD(270));
+		return (ft_rad(270));
 	else if (map->map2d[(int)map->playery / g_tiles]
 						[(int)map->playerx / g_tiles] == 'W')
-		return (RAD(180));
+		return (ft_rad(180));
 	else if (map->map2d[(int)map->playery / g_tiles]
 						[(int)map->playerx / g_tiles] == 'S')
-		return (RAD(90));
+		return (ft_rad(90));
 	else if (map->map2d[(int)map->playery / g_tiles]
 						[(int)map->playerx / g_tiles] == 'E')
-		return (RAD(0));
+		return (ft_rad(0));
 	return (0);
 }
 

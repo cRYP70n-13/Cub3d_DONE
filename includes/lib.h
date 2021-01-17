@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:13:58 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 15:37:28 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 17:42:12 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +127,6 @@ typedef struct	s_lst
 # define UP 13
 # define DOWN 1
 
-# define RAD(x) (x * (M_PI / 180))
-# define DEG(x) ((180 / M_PI) * x)
-
 void			ft_init(t_mapdata *map);
 void			err(char *s);
 void			ft_intro(int fd, t_mapdata *map);
@@ -185,6 +182,8 @@ char			*ft_strjoin(char *s1, char *s2);
 char			**ft_split(char const *s, char c);
 void			map_manager(t_mapdata *map);
 float			sean(t_mapdata *map);
+double			ft_rad(double x);
+double			ft_deg(double x);
 t_list			*ft_lstnew(void *content);
 t_list			*g_mylist;
 

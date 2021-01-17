@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:31 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 17:28:56 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	err(char *s)
 
 	i = -1;
 	ft_lstclear(&g_mylist);
-	e = "\033[1;31m Error\n >> \033[0;31m";
+	e = "ERROR !!!";
 	write(2, e, ft_strlen(e));
 	while (s[++i] != '\0')
 		write(2, s + i, 1);

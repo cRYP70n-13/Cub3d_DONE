@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:23 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 17:30:21 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	get_data(char *line, t_mapdata *map)
 	i = 0;
 	while (line[i++] != '\0')
 	{
-		(ft_isalpha(line[i])) ? err("there are some abnormal chars") : 0;
+		(ft_isalpha(line[i])) ? err("there are some anormal chars") : 0;
 		if (ft_isdigit(line[i]) && cond1 && (check += 1))
 		{
 			(map->width = ft_atoi(line + i)) && (cond1 -= cond1);

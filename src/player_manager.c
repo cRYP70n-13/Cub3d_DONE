@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:54 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 17:41:01 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,21 +89,21 @@ void	movements(t_mapdata *map)
 	y = map->map2d[(int)(map->playery + (map->keyv1 * sin(map->angle) * 10))
 			/ (t)][(int)map->playerx / (t)];
 	y1 = map->map2d[(int)(map->playery +
-			(map->keyv2 * sin(RAD(map->angle + 90)) * 10))
+			(map->keyv2 * sin(ft_rad(map->angle + 90)) * 10))
 			/ (t)][(int)map->playerx / (t)];
 	x = map->map2d[(int)map->playery / (t)]
 		[(int)(map->playerx + (map->keyv1 * cos(map->angle) * 10)) / (t)];
 	x1 = map->map2d[(int)map->playery / (t)][(int)(map->playerx + (map->keyv2
-	* cos(RAD(map->angle + 90)) * 10)) / (t)];
+	* cos(ft_rad(map->angle + 90)) * 10)) / (t)];
 	map->angle = fmod(map->angle, 2 * M_PI);
 	if (map->angle < 0)
 		map->angle += 2 * M_PI;
 	if (y != '1' && y != '2' && y1 != '1' && y1 != '2')
 		map->playery = map->playery + (map->keyv1 * sin(map->angle) * 4) +
-			(map->keyv2 * sin(RAD(map->angle + 90)) * 2);
+			(map->keyv2 * sin(ft_rad(map->angle + 90)) * 2);
 	if (x != '1' && x != '2' && x1 != '1' && x1 != '2')
 		map->playerx = map->playerx + (map->keyv1 * cos(map->angle) * 4) +
-			(map->keyv2 * cos(RAD(map->angle + 90)) * 2);
+			(map->keyv2 * cos(ft_rad(map->angle + 90)) * 2);
 }
 
 int		create_frame(t_mapdata *map)
