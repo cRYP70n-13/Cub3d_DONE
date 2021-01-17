@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:29 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 18:44:40 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:24:19 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ void	draw_floor(t_mapdata *map, char *line)
 		{
 			map->floor[j] = ft_atoi(line + i);
 			i += ft_intlen(map->floor[j]) - 1;
-			(map->floor[j] >= 0 && map->floor[j] <= 255) ? 0
-				: ft_error("it's the wrong F number");
+			(map->floor[j] >= 0 && map->floor[j] <= 255) ? 0 : ft_error("ERR");
 			j++;
 		}
 		(line[i] == ' ' || (line[i] == ',' && ft_isdigit(line[i + 1]) &&
@@ -90,8 +89,7 @@ void	ceiling(t_mapdata *map, char *line)
 		{
 			map->ceeling[j] = ft_atoi(line + i);
 			i += ft_intlen(map->ceeling[j]) - 1;
-			(map->ceeling[j] >= 0 && map->ceeling[j] <= 255) ? 0
-				: ft_error("it's the wrong C number");
+			(map->ceeling[j] >= 0 && map->ceeling[j] <= 255) ? 0 : ft_error("ERR");
 			j++;
 		}
 		(line[i] == ' ' || (line[i] == ',' && ft_isdigit(line[i + 1]) &&
