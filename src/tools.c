@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:12 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 15:12:05 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 15:37:34 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,5 @@ void	draw_player(t_mapdata *map)
 		i++;
 	}
 	free(tmp);
-	to_sprite(map, -1);
+	to_sprite(map, 0);
 }

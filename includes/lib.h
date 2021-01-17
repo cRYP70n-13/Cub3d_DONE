@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:13:58 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 15:37:28 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ void			ft_helpdrawasquare2(t_mapdata *map);
 void			ft_bzero(void *s, size_t n);
 void			ft_fhexa(int nb, t_mapdata *map);
 void			ft_chexa(int nb, t_mapdata *map);
-void			to_sprite(t_mapdata *map, int m);
+void			to_sprite(t_mapdata *map, float angle);
 void			hex(int hex);
 void			ft_small_check(char *line, t_mapdata *map, int notmap);
 void			fix_res(t_mapdata *map);

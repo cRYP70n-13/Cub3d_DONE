@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 15:15:38 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 15:45:44 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,12 @@ void	bubble_sort(t_mapdata *map)
 	}
 }
 
-void	to_sprite(t_mapdata *map, int m)
+void	to_sprite(t_mapdata *map, float angle)
 {
-	float	angle;
 	int		k;
 
-	m = -1;
 	k = -1;
 	bubble_sort(map);
-	angle = 0;
 	while (++k < g_count)
 	{
 		map->sprites[k].dist = sqrtf(((map->sprites[k].x) - map->playerx) *
@@ -93,7 +90,8 @@ void	to_sprite(t_mapdata *map, int m)
 		map->sprites[k].size = (map->width / map->sprites[k].dist) * g_tiles;
 		map->sprites[k].y_off = map->height / 2 - (int)map->sprites[k].size / 2;
 		map->sprites[k].x_off = ((DEG(angle) - DEG(map->angle)) * map->width) /
-		(float)g_tiles + ((map->width / 2.0f) - (int)map->sprites[k].size / 2.0f);
+		(float)g_tiles + ((map->width / 2.0f) -
+						(int)map->sprites[k].size / 2.0f);
 		draw_sprite(map, k);
 	}
 }
@@ -104,8 +102,7 @@ void	init_spt(t_mapdata *map)
 	static int			j;
 	static int			k = 0;
 
-	if (!(map->sprites = malloc(sizeof(t_sprite) * (g_count + 1))))
-		err("Could be allocated");
+	map->sprites = malloc(sizeof(t_sprite) * (g_count + 1));
 	ft_lstadd_front(&g_mylist, ft_lstnew(map->sprites));
 	(map->simg = mlx_xpm_file_to_image(map->mlx, map->sprite,
 		&map->s_height, &map->s_width)) == 0 ? err("wrong sprite ext") : 0;
@@ -120,8 +117,9 @@ void	init_spt(t_mapdata *map)
 				map->sprites[k].size = 0;
 				map->sprites[k].x = (j + 0.5f) * g_tiles;
 				map->sprites[k].y = (i + 0.5f) * g_tiles;
-				map->sprites[k].dist = sqrtf(((map->sprites[k].x) - map->playerx) *
-				((map->sprites[k].x) - map->playerx) + ((map->sprites[k].y) -
+				map->sprites[k].dist = sqrtf(((map->sprites[k].x)
+				- map->playerx)
+				* ((map->sprites[k].x) - map->playerx) + ((map->sprites[k].y) -
 				map->playery) * ((map->sprites[k].y) - map->playery));
 				k++;
 			}
