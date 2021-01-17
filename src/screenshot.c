@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:40:29 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	int		create_file(char *file_name)
 	if (!((fd = open(file_name, O_WRONLY | O_CREAT |
 	O_TRUNC, S_IRUSR | S_IWUSR)) > 0))
 	{
-		ft_error("Screenshot problem");
+		err("Screenshot problem");
 	}
 	return (fd);
 }
@@ -75,7 +75,7 @@ static void		file_write(int fd, int imagesize, t_mapdata *map)
 	int			j;
 
 	if (!(pixel_array = malloc(sizeof(char) * imagesize)))
-		ft_error("Error screenshot");
+		err("Error screenshot");
 	i = 0;
 	j = 0;
 	imagesize /= 4;

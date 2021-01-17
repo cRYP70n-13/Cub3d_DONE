@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:54 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 17:11:55 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		ft_exit(void)
 {
-	ft_error("game over");
+	err("game over");
 	return (0);
 }
 
@@ -44,7 +44,7 @@ int		key_released(int key, t_mapdata *map)
 		if (key == UP)
 			map->keyv1 = 0;
 	}
-	(key == 53) ? ft_error("game over") : 0;
+	(key == 53) ? err("game over") : 0;
 	return (0);
 }
 

@@ -1,4 +1,4 @@
-SRC = cub3d.c ft_strtrim.c get_next_line_utils.c main.c manage1.c mapstuff.c screenshot.c tools.c buildwall.c ft_split.c get_next_line.c helptools.c helpers.c manage.c player_manager.c raycats.c  textures.c
+SRC = cub3d.c ft_strtrim.c get_next_line_utils.c main.c manage1.c mapstuff.c screenshot.c tools.c buildwall.c ft_split.c get_next_line.c helptools.c helpers.c manage.c player_manager.c raycats.c sprite.c textures.c
 
 BONUS = $(SRC)
 

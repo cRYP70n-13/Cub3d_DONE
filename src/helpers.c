@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:31 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 18:51:58 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_isdigit(int c)
 	return (0);
 }
 
-void	ft_error(char *s)
+void	err(char *s)
 {
 	int		i;
 	char	*e;

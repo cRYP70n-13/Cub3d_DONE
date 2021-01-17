@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:15:35 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 18:49:54 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ void	ft_read(int fd, t_mapdata *map)
 	{
 		ret = get_next_line(fd, &line);
 		if ((line[0] == '1' || line[0] == ' ') && map->mapcheck < 8)
-			ft_error("map isn't last in the file");
+			err("map isn't last in the file");
 		if (map->mapcheck == 8 && (line[0] == ' ' || line[0] == '1')
 			&& notmap == 1)
 			notmap = 0;
 		if (map->mapcheck == 8 && line[0] != '\0' && notmap == 1)
-			ft_error("not an empty line");
+			err("not an empty line");
 		ft_small_check(line, map, notmap);
 		if (map->mapcheck == 8 && notmap == 0)
 		{

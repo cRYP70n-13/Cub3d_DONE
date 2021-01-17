@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:15:48 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/15 19:41:39 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void		fix_res(t_mapdata *map)
 
 	mlx_get_screen_size(map->mlx, &width, &height);
 	map->height = (map->height > height) ? height : map->height;
-	(map->height < 100) ? ft_error("height too small") : 0;
+	(map->height < 100) ? err("height too small") : 0;
 	map->width = (map->width > width) ? width : map->width;
-	(map->width < 100) ? ft_error("width too small") : 0;
+	(map->width < 100) ? err("width too small") : 0;
 }
 
 int			count_words(const char *str, char c)

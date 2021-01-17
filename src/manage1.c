@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:29 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 14:24:19 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	draw_floor(t_mapdata *map, char *line)
 
 	map->mapcheck++;
 	if (line[i] == 'F' && line[i + 1] != ' ')
-		ft_error("Something is wrong with the path F");
+		err("Something is wrong with the path F");
 	while (line[i] == ' ' || (line[i - 1] != ' ' && line[i] == 'F'))
 		i++;
 	while (line[i])
@@ -60,17 +60,17 @@ void	draw_floor(t_mapdata *map, char *line)
 		{
 			map->floor[j] = ft_atoi(line + i);
 			i += ft_intlen(map->floor[j]) - 1;
-			(map->floor[j] >= 0 && map->floor[j] <= 255) ? 0 : ft_error("ERR");
+			(map->floor[j] >= 0 && map->floor[j] <= 255) ? 0 : err("ERR");
 			j++;
 		}
 		(line[i] == ' ' || (line[i] == ',' && ft_isdigit(line[i + 1]) &&
 			ft_isdigit(line[i - 1])) || ft_isdigit(line[i])) ? 0 :
-				ft_error("not a valid F color");
+				err("not a valid F color");
 		i++;
 	}
 	map->nhexfloor = (map->floor[0] << 16)
 		| (map->floor[1] << 8) | map->floor[2];
-	(j != 3) ? ft_error("not a valid F color") : 0;
+	(j != 3) ? err("not a valid F color") : 0;
 }
 
 void	ceiling(t_mapdata *map, char *line)
@@ -80,7 +80,7 @@ void	ceiling(t_mapdata *map, char *line)
 
 	map->mapcheck++;
 	if (line[i] == 'C' && line[i + 1] != ' ')
-		ft_error("Something is wrong with the path ");
+		err("Something is wrong with the path ");
 	while (line[i] == ' ' || (line[i - 1] != ' ' && line[i] == 'C'))
 		i++;
 	while (line[i])
@@ -89,17 +89,17 @@ void	ceiling(t_mapdata *map, char *line)
 		{
 			map->ceeling[j] = ft_atoi(line + i);
 			i += ft_intlen(map->ceeling[j]) - 1;
-			(map->ceeling[j] >= 0 && map->ceeling[j] <= 255) ? 0 : ft_error("ERR");
+			(map->ceeling[j] >= 0 && map->ceeling[j] <= 255) ? 0 : err("ERR");
 			j++;
 		}
 		(line[i] == ' ' || (line[i] == ',' && ft_isdigit(line[i + 1]) &&
 			ft_isdigit(line[i - 1])) || ft_isdigit(line[i])) ? 0 :
-				ft_error("not a valid C color");
+				err("not a valid C color");
 		i++;
 	}
 	map->nhexceeling = (map->ceeling[0] << 16)
 		| (map->ceeling[1] << 8) | map->ceeling[2];
-	(j != 3) ? ft_error("not a valid C color") : 0;
+	(j != 3) ? err("not a valid C color") : 0;
 }
 
 void	ft_intro(int fd, t_mapdata *map)
@@ -108,7 +108,7 @@ void	ft_intro(int fd, t_mapdata *map)
 	ft_lstadd_front(&g_mylist, ft_lstnew(map));
 	ft_read(fd, map);
 	if (map->mapcheck != 8)
-		ft_error("something is miss stated");
+		err("something is miss stated");
 	if (!map->map2dbefore)
 		map->map2dbefore = ft_split(map->maponestr, '\n');
 	g_rows = count_words(map->maponestr, '\n');

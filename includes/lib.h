@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:13:58 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 18:49:19 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ typedef struct	s_lst
 # define DEG(x) ((180 / M_PI) * x)
 
 void			ft_init(t_mapdata *map);
-void			ft_error(char *s);
+void			err(char *s);
 void			ft_intro(int fd, t_mapdata *map);
 void			ft_readno(int fd, t_mapdata *map);
 void			north(t_mapdata *map, char *line);

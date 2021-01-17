@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:18:33 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 12:58:40 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ void	texture(t_mapdata *map)
 	int uslesser;
 
 	(map->textureimage = mlx_xpm_file_to_image(map->mlx, map->east,
-			&uslesser, &uslesser)) ? 0 : ft_error("wrong ea path");
+			&uslesser, &uslesser)) ? 0 : err("wrong ea path");
 	map->texturedata[0] = (int *)mlx_get_data_addr(map->textureimage,
 							&usless, &usless, &usless);
 	(map->textureimage = mlx_xpm_file_to_image(map->mlx, map->north,
-						&uslesser, &uslesser)) ? 0 : ft_error("wrong no path");
+						&uslesser, &uslesser)) ? 0 : err("wrong no path");
 	map->texturedata[1] = (int *)mlx_get_data_addr(map->textureimage,
 						&usless, &usless, &usless);
 	(map->textureimage = mlx_xpm_file_to_image(map->mlx, map->west,
-						&uslesser, &uslesser)) ? 0 : ft_error("wrong we path");
+						&uslesser, &uslesser)) ? 0 : err("wrong we path");
 	map->texturedata[2] = (int *)mlx_get_data_addr(map->textureimage,
 						&usless, &usless, &usless);
 	(map->textureimage = mlx_xpm_file_to_image(map->mlx, map->south,
-						&uslesser, &uslesser)) ? 0 : ft_error("wrong so path");
+						&uslesser, &uslesser)) ? 0 : err("wrong so path");
 	map->texturedata[3] = (int *)mlx_get_data_addr(map->textureimage,
 						&usless, &usless, &usless);
 }

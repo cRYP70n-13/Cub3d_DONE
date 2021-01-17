@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:23 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 18:36:28 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	get_data(char *line, t_mapdata *map)
 	i = 0;
 	while (line[i++] != '\0')
 	{
-		(ft_isalpha(line[i])) ? ft_error("there are some abnormal chars") : 0;
+		(ft_isalpha(line[i])) ? err("there are some abnormal chars") : 0;
 		if (ft_isdigit(line[i]) && cond1 && (check += 1))
 		{
 			(map->width = ft_atoi(line + i)) && (cond1 -= cond1);
@@ -35,8 +35,8 @@ void	get_data(char *line, t_mapdata *map)
 		}
 		(ft_isdigit(line[i]) && !cond1 && !cond2) ? check++ : 0;
 	}
-	(!(line[1] == ' ')) ? ft_error("no space after R") : 0;
-	(check != 2) ? ft_error("wrong number of R params") : 0;
+	(!(line[1] == ' ')) ? err("no space after R") : 0;
+	(check != 2) ? err("wrong number of R params") : 0;
 	fix_res(map);
 }
 

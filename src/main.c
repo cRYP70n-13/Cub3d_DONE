@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:15 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 14:24:19 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 15:12:00 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	set_mlx_up(t_mapdata *map)
 					&map->size_line, &map->endian, &map->endian);
 	if (c == 0)
 	{
-		// init_spt(map);
+		init_spt(map);
 		c = 1;
 	}
 	square_helper(map);
@@ -79,17 +79,17 @@ int		main(int argc, char **argv)
 	g_tiles = 64;
 	g_count = 0;
 	if (!(map = malloc(sizeof(t_mapdata))))
-		ft_error("can't be allocated");
+		err("can't be allocated");
 	ft_init(map);
 	g_mylist = ft_lstnew(0);
 	map->mlx = mlx_init();
 	fd = open(argv[1], O_RDONLY);
 	if (argc == 3)
 		((ft_strncmp(argv[2], "--save", 6) == 0)) ?
-		map->screen = 1 : ft_error("wrong argument");
+		map->screen = 1 : err("wrong argument");
 	((argc == 2 && fd > 0) || (argc == 3 && map->screen == 1)) ?
-		ft_intro(fd, map) : ft_error("where is my map");
-	(ft_checkex(argv[1])) ? 0 : ft_error("wrong extension");
+		ft_intro(fd, map) : err("where is my map");
+	(ft_checkex(argv[1])) ? 0 : err("wrong extension");
 	texture(map);
 	map->angle = sean(map);
 	set_mlx_up(map);

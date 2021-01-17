@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:17:38 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 18:41:19 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:32:57 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	map_helper(t_mapdata *map)
 		if ((map->map2d[i][0] != '1' && map->map2d[i][0] != ' ')
 			|| (map->map2d[i][ft_strlen(map->map2d[i]) - 1] != '1'
 			&& map->map2d[i][ft_strlen(map->map2d[i]) - 1] != ' '))
-			ft_error("map extreems aren't closed");
+			err("map extreems aren't closed");
 		j = -1;
 		while (map->map2d[i][++j])
 		{
@@ -46,7 +46,7 @@ void	map_helper(t_mapdata *map)
 				g_count++;
 			if (i == 0 || i == g_rows - 1)
 				if (map->map2d[i][j] != '1' && map->map2d[i][j] != ' ')
-					ft_error("map extreems  aren't closed,");
+					err("map extreems  aren't closed,");
 		}
 	}
 }
@@ -87,11 +87,10 @@ void	map_parser(t_mapdata *map)
 			}
 			else if ((map->map2d[i][j] == 'N' || map->map2d[i][j] == 'W'
 			|| map->map2d[i][j] == 'E' || map->map2d[i][j] == 'S') && p == 1)
-				ft_error("multiplayer game");
-			if (!map_helper_2(map->map2d[i][j]))
-				ft_error("wrong character");
-			(wallconditions(map, &i, &j)) ? ft_error("map isn't closed") : 0;
+				err("multiplayer game");
+			!(map_helper_2(map->map2d[i][j])) ? err("Wrong Char") : 0;
+			(wallconditions(map, &i, &j)) ? err("map isn't closed") : 0;
 		}
 	}
-	(p == 0) ? ft_error("there's no player") : 0;
+	(p == 0) ? err("there's no player") : 0;
 }

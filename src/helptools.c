@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:16:53 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/16 18:32:16 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/17 14:26:30 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	ft_small_check(char *line, t_mapdata *map, int notmap)
 	else if (line[0] == 'C' && line[1] == ' ')
 		ceiling(map, line);
 	else if (line[0] != '\0' && map->mapcheck < 8)
-		ft_error("there is a none empty line");
+		err("there is a none empty line");
 	else if (line[0] != ' ' && line[0] != '1' && map->mapcheck == 8 && !notmap)
-		ft_error("something is wrong with the map");
+		err("something is wrong with the map");
 }
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
