@@ -6,7 +6,7 @@
 /*   By: okimdil <okimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 19:19:20 by okimdil           #+#    #+#             */
-/*   Updated: 2021/01/17 17:40:24 by okimdil          ###   ########.fr       */
+/*   Updated: 2021/01/18 14:11:27 by okimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ void	to_sprite(t_mapdata *map, float angle)
 			angle += 2 * M_PI;
 		map->sprites[k].size = (map->width / map->sprites[k].dist) * g_tiles;
 		map->sprites[k].y_off = map->height / 2 - (int)map->sprites[k].size / 2;
-		map->sprites[k].x_off = ((ft_deg(angle) - ft_deg(map->angle)) * map->width) /
-		(float)g_tiles + ((map->width / 2.0f) -
+		map->sprites[k].x_off = ((ft_deg(angle) - ft_deg(map->angle))
+		* map->width) / (float)g_tiles + ((map->width / 2.0f) -
 						(int)map->sprites[k].size / 2.0f);
 		draw_sprite(map, k, -1, -1);
 	}
